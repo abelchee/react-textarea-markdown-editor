@@ -19,15 +19,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/abelchee/react-enhanced-textarea.git"
+    "url": "git+ssh://git@github.com/abelchee/react-textarea-markdown-editor.git"
   },
   "bugs": {
-    "url": "https://github.com/abelchee/react-enhanced-textarea/issues"
+    "url": "https://github.com/abelchee/react-textarea-markdown-editor/issues"
   },
   "files": [
     "build"
   ],
-  "homepage": "https://github.com/abelchee/react-enhanced-textarea",
+  "homepage": "https://github.com/abelchee/react-textarea-markdown-editor",
   "author": "Abel Chee <abel.chee@gmail.com>",
   "license": "MIT",
   "private": false,
