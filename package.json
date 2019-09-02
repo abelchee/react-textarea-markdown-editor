@@ -42,8 +42,8 @@
     ]
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.3",
@@ -74,6 +74,6 @@
     "typescript": "^3.6.2"
   },
   "dependencies": {
-    "react-enhanced-textarea": "^1.0.1"
+    "react-enhanced-textarea": "^2.0.4"
   }
 }
