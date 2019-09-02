@@ -1,11 +1,17 @@
 import * as React from 'react';
 import { RefObject } from 'react';
-import EnhancedTextarea from 'react-enhanced-textarea';
+import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
 
-type EditorContext = {
-  textareaRef?: RefObject<EnhancedTextarea>;
-  onChange?: (value: string) => void;
-  onKeyDown?: (event: React.KeyboardEvent) => void;
-};
+interface IEditorContext {
+  textareaRef?: RefObject<IEnhancedTextareaHandles>;
+  textareaId?: string | undefined;
+  rows?: number;
+  defaultValue?: string | undefined;
+  value?: string | undefined;
+  autoFocus?: boolean;
+  onChange?: (textarea?: HTMLTextAreaElement) => {} | undefined;
+  onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
+  onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
+}
 
-export default React.createContext<EditorContext>({});
+export default React.createContext<IEditorContext>({});

@@ -1,28 +1,35 @@
 import * as React from 'react';
-import EnhancedTextarea from 'react-enhanced-textarea';
+import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
 import EditContext from './EditorContext';
 
 export interface ITextareaMarkdownEditor {
   children: React.ReactNode;
+  id?: string | undefined;
+  textareaId?: string | undefined;
+  className?: string | undefined;
+  style?: object | undefined;
+  rows?: number;
+  defaultValue?: string | undefined;
+  value?: string | undefined;
+  autoFocus?: boolean;
+  onChange?: (textarea?: HTMLTextAreaElement) => {} | undefined;
+  onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
+  onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
 }
 
-const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = ({ children }) => {
-  const textareaRef = React.createRef<EnhancedTextarea>();
-  const onChange = (value: string) => {
-    console.log(value);
-  };
-  const onKeyDown = (event: React.KeyboardEvent) => {
-    console.log(event);
-  };
+const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
+  const textareaRef = React.createRef<IEnhancedTextareaHandles>();
   return (
     <EditContext.Provider
       value={{
+        autoFocus: props.autoFocus,
+        defaultValue: props.defaultValue,
+        rows: props.rows,
+        textareaId: props.textareaId,
         textareaRef,
-        onChange,
-        onKeyDown,
       }}
     >
-      {children}
+      {props.children}
     </EditContext.Provider>
   );
 };
