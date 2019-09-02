@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRef } from 'react';
 import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
 import EditContext from './EditorContext';
 
@@ -18,7 +19,7 @@ export interface ITextareaMarkdownEditor {
 }
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
-  const textareaRef = React.createRef<IEnhancedTextareaHandles>();
+  const textareaRef = useRef<IEnhancedTextareaHandles>(null);
   return (
     <EditContext.Provider
       value={{
