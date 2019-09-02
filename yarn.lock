@@ -7966,6 +7966,11 @@ react-dom@^16.9.0:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
+react-enhanced-textarea@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-enhanced-textarea/-/react-enhanced-textarea-2.0.5.tgz#ebf1ff23b2ca16a3c3f5957574bf82cff35dac6c"
+  integrity sha512-0nq10O22/FevT8CNKDCAbbWR7H3hlPhyKP2VchBbsBBtv8Sa4sGURT4kqvbQYiLpjO7+d2WkZ95hB0sLZZ3zxA==
+
 react-error-overlay@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.1.tgz#b8d3cf9bb991c02883225c48044cb3ee20413e0f"
@@ -8036,6 +8041,13 @@ react-scripts@3.1.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.0.7"
+
+react-textarea-markdown-editor@^0.0.1-beta.4:
+  version "0.0.1-beta.4"
+  resolved "https://registry.yarnpkg.com/react-textarea-markdown-editor/-/react-textarea-markdown-editor-0.0.1-beta.4.tgz#235cdc1d83945cd66fbbd283986bc8d51f00469c"
+  integrity sha512-8maIWFpBDZcpcfB1SBx4Wg24+mAj3+i8NWp6tDC+P0B9lkfeDGgpLbkJlF9iJyw3hDQX3eOyXaeSahJMnVkuXQ==
+  dependencies:
+    react-enhanced-textarea "^2.0.5"
 
 react@^16.9.0:
   version "16.9.0"

@@ -1,11 +1,12 @@
 {
-  "name": "react-textarea-markdown-editor",
+  "name": "react-textarea-markdown-editor-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "react-textarea-markdown-editor": "^0.0.1-beta.4"
   },
   "homepage": "http://abelchee.github.io/react-textarea-markdown-editor/",
   "scripts": {
