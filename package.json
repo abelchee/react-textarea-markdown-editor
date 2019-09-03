@@ -2,12 +2,6 @@
   "name": "react-textarea-markdown-editor-example",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "react-textarea-markdown-editor": "^0.0.1-beta.4"
-  },
   "homepage": "http://abelchee.github.io/react-textarea-markdown-editor/",
   "scripts": {
     "start": "react-scripts start",
@@ -15,7 +9,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "local": "yarn link react-textarea-markdown-editor && npm link ../react-textarea-markdown-editor/node_modules/react && npm link ../react-textarea-markdown-editor/node_modules/react-dom"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,6 +26,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1",
+    "react-textarea-markdown-editor": "^0.0.1-beta.5"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1"
