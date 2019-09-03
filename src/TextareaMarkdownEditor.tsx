@@ -35,4 +35,8 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
   );
 };
 
+TextareaMarkdownEditor.defaultProps = {
+  rows: 5,
+};
+
 export default TextareaMarkdownEditor;
