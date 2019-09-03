@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
+import classNames from 'classnames';
 import EditContext from './EditorContext';
 import Textarea from './Textarea';
 import EditorMenu from './EditorMenu';
@@ -22,25 +23,41 @@ export interface ITextareaMarkdownEditor {
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
   const textareaRef = useRef<IEnhancedTextareaHandles>(null);
+  const [lineMarkers, setLineMarkers] = useState<string[]>([]);
   return (
-    <EditContext.Provider
-      value={{
-        autoFocus: props.autoFocus,
-        defaultValue: props.defaultValue,
-        rows: props.rows,
-        textareaId: props.textareaId,
-        textareaRef,
-      }}
-    >
-      {props.children ? (
-        props.children
-      ) : (
-        <>
-          <EditorMenu />
-          <Textarea />
-        </>
-      )}
-    </EditContext.Provider>
+    <div className={classNames('tme-container', props.className)}>
+      <EditContext.Provider
+        value={{
+          autoFocus: props.autoFocus,
+          defaultValue: props.defaultValue,
+          lineMarkers,
+          rows: props.rows,
+          textareaId: props.textareaId,
+          textareaRef,
+          mark: (prefix: string, suffix: string, defaultText: string = '') => {
+            textareaRef.current!.toggleMarker({ prefix, suffix, defaultText });
+          },
+          markLine: (marker: string) => {
+            textareaRef.current!.toggleLineMarker(marker);
+          },
+          registerLineMarker: (marker: string) => {
+            const index = lineMarkers.indexOf(marker);
+            if (index < 0) {
+              setLineMarkers([...lineMarkers, marker]);
+            }
+          },
+        }}
+      >
+        {props.children ? (
+          props.children
+        ) : (
+          <>
+            <EditorMenu />
+            <Textarea />
+          </>
+        )}
+      </EditContext.Provider>
+    </div>
   );
 };
 

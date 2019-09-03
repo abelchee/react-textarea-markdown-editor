@@ -9,9 +9,18 @@ export interface ITextareaProps {
 }
 
 const Textarea: React.FunctionComponent<ITextareaProps> = props => {
-  const { textareaRef, rows, autoFocus, defaultValue, onChange, onKeyDown, onKeyPress, textareaId, value } = useContext(
-    EditorContext,
-  );
+  const {
+    textareaRef,
+    rows,
+    autoFocus,
+    defaultValue,
+    onChange,
+    onKeyDown,
+    onKeyPress,
+    textareaId,
+    value,
+    lineMarkers,
+  } = useContext(EditorContext);
 
   return (
     <EnhancedTextarea
@@ -25,6 +34,7 @@ const Textarea: React.FunctionComponent<ITextareaProps> = props => {
       onChange={onChange}
       onKeyDown={onKeyDown}
       onKeyPress={onKeyPress}
+      lineMarkers={lineMarkers}
     />
   );
 };

@@ -9,9 +9,13 @@ interface IEditorContext {
   defaultValue?: string | undefined;
   value?: string | undefined;
   autoFocus?: boolean;
+  lineMarkers?: string[];
   onChange?: (textarea?: HTMLTextAreaElement) => {} | undefined;
   onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
+  mark?: (prefix: string, suffix: string, defaultText?: string) => void;
+  markLine?: (marker: string) => void;
+  registerLineMarker?: (marker: string) => void;
 }
 
 export default React.createContext<IEditorContext>({});
