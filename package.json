@@ -7,13 +7,15 @@
   "jsnext:main": "build/index.es.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "clean": "rimraf build",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test && yarn lint",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
     "postversion": "git push && git push --tags",
     "test": "jest",
-    "build": "rollup -c",
+    "build": "yarn clean && rollup -c && yarn sass",
+    "sass": "node-sass src -o build && copyfiles -f src/*.scss build",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "lint": "tslint -p tsconfig.json"
   },
@@ -46,6 +48,7 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.18",
@@ -53,16 +56,19 @@
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-test-renderer": "^16.9.0",
+    "copyfiles": "^2.1.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.9.0",
     "jsdom": "^15.1.1",
+    "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "raf": "^3.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts-ts": "^3.1.0",
     "react-test-renderer": "^16.9.0",
+    "rimraf": "^3.0.0",
     "rollup": "^1.20.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -74,6 +80,7 @@
     "typescript": "^3.6.2"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "react-enhanced-textarea": "^2.0.7"
   }
 }

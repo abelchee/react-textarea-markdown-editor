@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useContext } from 'react';
+import classNames from 'classnames';
 import EnhancedTextarea from 'react-enhanced-textarea';
 import EditorContext from './EditorContext';
 
@@ -15,7 +16,7 @@ const Textarea: React.FunctionComponent<ITextareaProps> = props => {
   return (
     <EnhancedTextarea
       id={textareaId}
-      className={props.className}
+      className={classNames(props.className, 'tme-textarea')}
       ref={textareaRef}
       rows={rows}
       autoFocus={autoFocus}
