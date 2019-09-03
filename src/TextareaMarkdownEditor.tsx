@@ -2,9 +2,11 @@ import * as React from 'react';
 import { useRef } from 'react';
 import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
 import EditContext from './EditorContext';
+import Textarea from './Textarea';
+import EditorMenu from './EditorMenu';
 
 export interface ITextareaMarkdownEditor {
-  children: React.ReactNode;
+  children?: React.ReactNode | undefined;
   id?: string | undefined;
   textareaId?: string | undefined;
   className?: string | undefined;
@@ -30,7 +32,14 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
         textareaRef,
       }}
     >
-      {props.children}
+      {props.children ? (
+        props.children
+      ) : (
+        <>
+          <EditorMenu />
+          <Textarea />
+        </>
+      )}
     </EditContext.Provider>
   );
 };
