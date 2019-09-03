@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Textarea, TextareaMarkdownEditor } from 'react-textarea-markdown-editor';
+import { TextareaMarkdownEditor } from 'react-textarea-markdown-editor';
 
 function App() {
   return (
     <div className="App">
-        <TextareaMarkdownEditor id="123">
-           <Textarea />
-         </TextareaMarkdownEditor>,
+        <TextareaMarkdownEditor id="123"/>
     </div>
   );
 }
