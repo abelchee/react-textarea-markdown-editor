@@ -11,6 +11,12 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
   return (
     <div className={classNames('tme-menu', props.className)}>
       <ul className="tme-menu-group left">
+        <li className="tme-menu-item tme-dropdown-trigger">
+          <b>H1</b>
+          <i className="tme-dropdown-arrow" />
+        </li>
+      </ul>
+      <ul className="tme-menu-group left">
         <EditorLineMarker marker="# ">
           {mark => (
             <li className="tme-menu-item" onClick={mark}>
