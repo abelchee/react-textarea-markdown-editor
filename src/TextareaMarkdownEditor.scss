@@ -15,6 +15,7 @@
     border-top: none;
     padding: 5px;
   }
+
   .tme-textarea {
     overflow-y: auto;
     width: 100%;
@@ -50,11 +51,12 @@
       padding-inline-start: 0;
 
       & > li.tme-menu-item {
+        position: relative;
+        z-index: 1;
         &:not(:first-child) {
-          border-left-width: 0;
+          margin-left: -1px;
         }
         &:first-child {
-          margin-left: 0 !important;
           border-radius: 2px 0 0 2px;
         }
         &:last-child {
@@ -71,6 +73,7 @@
           border: 1px solid #959595 !important;
           background-color: #f9f9f9;
           cursor: pointer;
+          z-index: 100;
         }
 
         &:active {
