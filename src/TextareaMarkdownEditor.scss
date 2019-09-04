@@ -91,5 +91,15 @@
         text-decoration: none;
       }
     }
+
+    .tme-menu-item.tme-material-icon {
+      padding: 4px 0;
+      vertical-align: top;
+      img {
+        height: 19px;
+        width: 23px;
+        vertical-align: middle;
+      }
+    }
   }
 }

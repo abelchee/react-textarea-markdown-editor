@@ -81,6 +81,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react-enhanced-textarea": "^2.0.9"
+    "react-enhanced-textarea": "2.0.9"
   }
 }
