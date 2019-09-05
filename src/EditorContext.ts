@@ -13,7 +13,7 @@ interface IEditorContext {
   onChange?: (textarea?: HTMLTextAreaElement) => {} | undefined;
   onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
-  mark?: (prefix: string, suffix: string, defaultText?: string) => void;
+  mark?: (prefix: string, suffix: string, defaultText: string, multipleLine: boolean) => void;
   markLine?: (marker: string) => void;
   registerLineMarker?: (marker: string) => void;
   focus?: () => void;

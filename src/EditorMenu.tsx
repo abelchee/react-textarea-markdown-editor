@@ -77,6 +77,27 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 </li>
               )}
             </EditorMarker>
+            <EditorLineMarker marker="> ">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  Blockquote
+                </li>
+              )}
+            </EditorLineMarker>
+            <EditorMarker prefix="`" suffix="`" defaultText="code">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  Inline Code
+                </li>
+              )}
+            </EditorMarker>
+            <EditorMarker prefix="```" suffix="```" defaultText="code" multipleLine>
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  Code
+                </li>
+              )}
+            </EditorMarker>
           </ul>
         </EditorMenuDropdown>
       </ul>

@@ -34,8 +34,12 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
             textareaRef.current!.focus();
           },
           lineMarkers,
-          mark: (prefix: string, suffix: string, defaultText: string = '') => {
-            textareaRef.current!.toggleMarker({ prefix, suffix, defaultText });
+          mark: (prefix: string, suffix: string, defaultText: string, multipleLine: boolean) => {
+            if (multipleLine) {
+              textareaRef.current!.toggleMultipleLineMarker({ prefix, suffix, defaultText });
+            } else {
+              textareaRef.current!.toggleMarker({ prefix, suffix, defaultText });
+            }
           },
           markLine: (marker: string) => {
             textareaRef.current!.toggleLineMarker(marker);
