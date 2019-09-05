@@ -21,59 +21,64 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 </li>
               )}
             </EditorLineMarker>
-            <li>
-              <b>H2 ##</b>
-            </li>
-            <li>
-              <b>H3 ###</b>
-            </li>
-            <li>
-              <b>H4 ####</b>
-            </li>
+            <EditorLineMarker marker="## ">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  <b>H2 ##</b>
+                </li>
+              )}
+            </EditorLineMarker>
+            <EditorLineMarker marker="### ">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  <b>H3 ###</b>
+                </li>
+              )}
+            </EditorLineMarker>
+            <EditorLineMarker marker="#### ">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  <b>H4 ####</b>
+                </li>
+              )}
+            </EditorLineMarker>
           </ul>
         </EditorMenuDropdown>
       </ul>
       <ul className="tme-menu-group left">
-        <EditorLineMarker marker="# ">
-          {mark => (
-            <li className="tme-menu-item" onClick={mark}>
-              <b>H1</b>
-            </li>
-          )}
-        </EditorLineMarker>
-        <EditorLineMarker marker="## ">
-          {mark => (
-            <li className="tme-menu-item" onClick={mark}>
-              <b>H2</b>
-            </li>
-          )}
-        </EditorLineMarker>
-        <EditorLineMarker marker="### ">
-          {mark => (
-            <li className="tme-menu-item" onClick={mark}>
-              <b>H2</b>
-            </li>
-          )}
-        </EditorLineMarker>
-      </ul>
-      <ul className="tme-menu-group left">
-        <EditorMarker marker="**" defaultText="bold">
-          {mark => (
-            <li className="tme-menu-item" onClick={mark}>
-              <b>B</b>
-            </li>
-          )}
-        </EditorMarker>
-        <EditorMarker marker="*" defaultText="italic">
-          {mark => (
-            <li className="tme-menu-item tme-material-icon" onClick={mark}>
-              <img
-                alt=""
-                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTEwIDR2M2gyLjIxbC0zLjQyIDhINnYzaDh2LTNoLTIuMjFsMy40Mi04SDE4VjR6Ii8+PC9zdmc+"
-              />
-            </li>
-          )}
-        </EditorMarker>
+        <EditorMenuDropdown
+          className="tme-material-icon"
+          text={
+            <img
+              alt=""
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGRlZnM+PHBhdGggaWQ9ImEiIGQ9Ik0yNCAyNEgwVjBoMjR2MjR6Ii8+PC9kZWZzPjxjbGlwUGF0aCBpZD0iYiI+PHVzZSB4bGluazpocmVmPSIjYSIgb3ZlcmZsb3c9InZpc2libGUiLz48L2NsaXBQYXRoPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNiKSIgZD0iTTIuNSA0djNoNXYxMmgzVjdoNVY0aC0xM3ptMTkgNWgtOXYzaDN2N2gzdi03aDNWOXoiLz48L3N2Zz4="
+            />
+          }
+        >
+          <ul>
+            <EditorMarker prefix="**" suffix="**" defaultText="bold">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  <b>Bold</b>
+                </li>
+              )}
+            </EditorMarker>
+            <EditorMarker prefix="*" suffix="*" defaultText="italic">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  <i>Italic</i>
+                </li>
+              )}
+            </EditorMarker>
+            <EditorMarker prefix="~~" suffix="~~" defaultText="default">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  <del>Strikethrough</del>
+                </li>
+              )}
+            </EditorMarker>
+          </ul>
+        </EditorMenuDropdown>
       </ul>
       <ul className="tme-menu-group left">
         <EditorLineMarker marker="* ">

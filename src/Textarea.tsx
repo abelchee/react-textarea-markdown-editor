@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import { useContext } from 'react';
-import classNames from 'classnames';
 import EnhancedTextarea from 'react-enhanced-textarea';
 import EditorContext from './EditorContext';
 

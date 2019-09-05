@@ -94,6 +94,10 @@ $tme-arrow-size: 5px;
             width: 23px;
             vertical-align: middle;
           }
+          .tme-dropdown-arrow {
+            margin-right: 5px;
+            margin-left: -6px;
+          }
         }
 
         &.tme-dropdown {
@@ -113,7 +117,7 @@ $tme-arrow-size: 5px;
           display: none;
           top: 29px;
           left: -1px;
-          min-width: 100px;
+          min-width: 50px;
           background-color: #fff;
           z-index: 2;
           &.show {
@@ -132,7 +136,7 @@ $tme-arrow-size: 5px;
             width: 100%;
             white-space: nowrap;
             border-bottom: 1px solid #d4d4d5;
-            padding: 3px;
+            padding: 5px;
             &:hover {
               background-color: #f9f9f9;
               cursor: pointer;
