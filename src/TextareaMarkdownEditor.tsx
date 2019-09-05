@@ -1,10 +1,10 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import { useRef, useState } from 'react';
 import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
-import classNames from 'classnames';
 import EditContext from './EditorContext';
-import Textarea from './Textarea';
 import EditorMenu from './EditorMenu';
+import Textarea from './Textarea';
 
 export interface ITextareaMarkdownEditor {
   children?: React.ReactNode | undefined;
@@ -31,9 +31,6 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           autoFocus: props.autoFocus,
           defaultValue: props.defaultValue,
           lineMarkers,
-          rows: props.rows,
-          textareaId: props.textareaId,
-          textareaRef,
           mark: (prefix: string, suffix: string, defaultText: string = '') => {
             textareaRef.current!.toggleMarker({ prefix, suffix, defaultText });
           },
@@ -46,6 +43,9 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
               setLineMarkers([...lineMarkers, marker]);
             }
           },
+          rows: props.rows,
+          textareaId: props.textareaId,
+          textareaRef,
         }}
       >
         {props.children ? (
