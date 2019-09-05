@@ -102,6 +102,18 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
           )}
         </EditorLineMarker>
       </ul>
+      <ul className="tme-menu-group left">
+        <EditorMarker prefix="[" suffix="](url)" defaultText="text">
+          {mark => (
+            <li className="tme-menu-item tme-material-icon" onClick={mark}>
+              <img
+                alt=""
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTMuOSAxMmMwLTEuNzEgMS4zOS0zLjEgMy4xLTMuMWg0VjdIN2MtMi43NiAwLTUgMi4yNC01IDVzMi4yNCA1IDUgNWg0di0xLjlIN2MtMS43MSAwLTMuMS0xLjM5LTMuMS0zLjF6TTggMTNoOHYtMkg4djJ6bTktNmgtNHYxLjloNGMxLjcxIDAgMy4xIDEuMzkgMy4xIDMuMXMtMS4zOSAzLjEtMy4xIDMuMWgtNFYxN2g0YzIuNzYgMCA1LTIuMjQgNS01cy0yLjI0LTUtNS01eiIvPjwvc3ZnPg=="
+              />
+            </li>
+          )}
+        </EditorMarker>
+      </ul>
       <ul className="tme-menu-group right">
         <li className="tme-menu-item">
           <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">
