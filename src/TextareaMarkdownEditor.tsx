@@ -30,6 +30,9 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
         value={{
           autoFocus: props.autoFocus,
           defaultValue: props.defaultValue,
+          focus: () => {
+            textareaRef.current!.focus();
+          },
           lineMarkers,
           mark: (prefix: string, suffix: string, defaultText: string = '') => {
             textareaRef.current!.toggleMarker({ prefix, suffix, defaultText });
