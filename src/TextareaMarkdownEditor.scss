@@ -96,7 +96,7 @@ $tme-arrow-size: 5px;
           }
         }
 
-        &.tme-dropdown-trigger {
+        &.tme-dropdown {
           position: relative;
           .tme-dropdown-arrow {
             display: inline-block;
@@ -105,6 +105,38 @@ $tme-arrow-size: 5px;
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48cGF0aCBkPSJNNy40MSA4LjU5TDEyIDEzLjE3bDQuNTktNC41OEwxOCAxMGwtNiA2LTYtNiAxLjQxLTEuNDF6Ii8+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgwVjB6Ii8+PC9zdmc+')
               no-repeat center center;
             background-size: 80% 80%;
+          }
+        }
+        .tme-dropdown-content {
+          position: absolute;
+          border: 1px solid #d4d4d5;
+          display: none;
+          top: 29px;
+          left: -1px;
+          min-width: 100px;
+          background-color: #fff;
+          z-index: 2;
+          &.show {
+            display: block;
+          }
+        }
+        ul {
+          list-style-type: none;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          padding-inline-start: 0;
+          text-align: left;
+
+          > li {
+            display: inline-block;
+            width: 100%;
+            white-space: nowrap;
+            border-bottom: 1px solid #d4d4d5;
+            padding: 3px;
+            &:hover {
+              background-color: #f9f9f9;
+              cursor: pointer;
+            }
           }
         }
       }

@@ -1,7 +1,8 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
+import EditorMenuDropdown from './EditorMenuDropdown';
 
 export interface IEditorMenuProps {
   className?: string | undefined;
@@ -11,10 +12,26 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
   return (
     <div className={classNames('tme-menu', props.className)}>
       <ul className="tme-menu-group left">
-        <li className="tme-menu-item tme-dropdown-trigger">
-          <b>H1</b>
-          <i className="tme-dropdown-arrow" />
-        </li>
+        <EditorMenuDropdown text={<b>H1</b>}>
+          <ul>
+            <EditorLineMarker marker="# ">
+              {mark => (
+                <li className="tme-menu-item" onClick={mark}>
+                  <b>H1 #</b>
+                </li>
+              )}
+            </EditorLineMarker>
+            <li>
+              <b>H2 ##</b>
+            </li>
+            <li>
+              <b>H3 ###</b>
+            </li>
+            <li>
+              <b>H4 ####</b>
+            </li>
+          </ul>
+        </EditorMenuDropdown>
       </ul>
       <ul className="tme-menu-group left">
         <EditorLineMarker marker="# ">
