@@ -1,10 +1,17 @@
 import classNames from 'classnames';
+import Markdown from 'markdown-it';
 import * as React from 'react';
 import { useRef, useState } from 'react';
 import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
 import EditContext from './EditorContext';
 import EditorMenu from './EditorMenu';
 import Textarea from './Textarea';
+
+const md = new Markdown();
+
+function doParse(text: string) {
+  return md.render(text);
+}
 
 export interface ITextareaMarkdownEditor {
   children?: React.ReactNode | undefined;
@@ -19,17 +26,23 @@ export interface ITextareaMarkdownEditor {
   onChange?: (textarea?: HTMLTextAreaElement) => {} | undefined;
   onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
+  doParse?: (text: string) => string;
 }
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
   const textareaRef = useRef<IEnhancedTextareaHandles>(null);
   const [lineMarkers, setLineMarkers] = useState<string[]>([]);
+  const [edit, setEdit] = useState(true);
+  function toggleEdit() {
+    setEdit(!edit);
+  }
   return (
     <div className={classNames('tme-container', props.className)}>
       <EditContext.Provider
         value={{
           autoFocus: props.autoFocus,
           defaultValue: props.defaultValue,
+          doParse: props.doParse || doParse,
           focus: () => {
             textareaRef.current!.focus();
           },
@@ -53,6 +66,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           rows: props.rows,
           textareaId: props.textareaId,
           textareaRef,
+          toggleEdit,
         }}
       >
         {props.children ? (
@@ -60,7 +74,16 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
         ) : (
           <>
             <EditorMenu />
-            <Textarea />
+            {edit ? (
+              <Textarea />
+            ) : (
+              <div
+                className="tme-viewer"
+                dangerouslySetInnerHTML={{
+                  __html: textareaRef.current ? (props.doParse || doParse)(textareaRef.current.value) : '',
+                }}
+              />
+            )}
           </>
         )}
       </EditContext.Provider>

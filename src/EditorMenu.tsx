@@ -3,12 +3,15 @@ import * as React from 'react';
 import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
 import EditorMenuDropdown from './EditorMenuDropdown';
+import { useContext } from 'react';
+import EditorContext from './EditorContext';
 
 export interface IEditorMenuProps {
   className?: string | undefined;
 }
 
 const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
+  const { toggleEdit } = useContext(EditorContext);
   return (
     <div className={classNames('tme-menu', props.className)}>
       <ul className="tme-menu-group left">
@@ -141,7 +144,9 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             <b>?</b>
           </a>
         </li>
-        <li className="tme-menu-item">Preview</li>
+        <li className="tme-menu-item" onClick={() => toggleEdit!()}>
+          Preview
+        </li>
       </ul>
     </div>
   );

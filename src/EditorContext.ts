@@ -17,6 +17,8 @@ interface IEditorContext {
   markLine?: (marker: string) => void;
   registerLineMarker?: (marker: string) => void;
   focus?: () => void;
+  doParse?: (text: string) => string;
+  toggleEdit?: () => void;
 }
 
 export default React.createContext<IEditorContext>({});
