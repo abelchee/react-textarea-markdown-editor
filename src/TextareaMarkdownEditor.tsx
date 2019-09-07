@@ -23,7 +23,7 @@ export interface ITextareaMarkdownEditor {
   defaultValue?: string | undefined;
   value?: string | undefined;
   autoFocus?: boolean;
-  onChange?: (textarea?: HTMLTextAreaElement) => {} | undefined;
+  onChange?: (textarea: HTMLTextAreaElement) => {} | undefined;
   onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
   doParse?: (text: string) => string;
@@ -33,8 +33,15 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
   const textareaRef = useRef<IEnhancedTextareaHandles>(null);
   const [lineMarkers, setLineMarkers] = useState<string[]>([]);
   const [edit, setEdit] = useState(true);
+  const [value, setValue] = useState(props.value || props.defaultValue);
   function toggleEdit() {
     setEdit(!edit);
+  }
+  function onChange(textarea: HTMLTextAreaElement) {
+    setValue(textarea.value);
+    if (props.onChange) {
+      props.onChange(textarea);
+    }
   }
   return (
     <div className={classNames('tme-container', props.className)}>
@@ -46,6 +53,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           focus: () => {
             textareaRef.current!.focus();
           },
+          isEditing: edit,
           lineMarkers,
           mark: (prefix: string, suffix: string, defaultText: string, multipleLine: boolean) => {
             if (multipleLine) {
@@ -57,6 +65,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           markLine: (marker: string) => {
             textareaRef.current!.toggleLineMarker(marker);
           },
+          onChange,
           registerLineMarker: (marker: string) => {
             const index = lineMarkers.indexOf(marker);
             if (index < 0) {
@@ -67,6 +76,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           textareaId: props.textareaId,
           textareaRef,
           toggleEdit,
+          value,
         }}
       >
         {props.children ? (
