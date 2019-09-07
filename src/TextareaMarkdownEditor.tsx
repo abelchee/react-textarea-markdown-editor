@@ -7,7 +7,9 @@ import EditContext from './EditorContext';
 import EditorMenu from './EditorMenu';
 import Textarea from './Textarea';
 
-const md = new Markdown();
+const md = new Markdown({
+  xhtmlOut: true,
+});
 
 function doParse(text: string) {
   return md.render(text);
