@@ -98,6 +98,13 @@ $tme-arrow-size: 5px;
             margin-right: 5px;
             margin-left: -6px;
           }
+
+          &.tme-link {
+            padding: 0;
+            & > a {
+              padding: 5px;
+            }
+          }
         }
 
         &.tme-dropdown {

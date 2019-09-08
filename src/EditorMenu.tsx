@@ -149,7 +149,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
         </>
       )}
       <ul className="tme-menu-group right">
-        <li className="tme-menu-item">
+        <li className="tme-menu-item tme-link">
           <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">
             <b>?</b>
           </a>
