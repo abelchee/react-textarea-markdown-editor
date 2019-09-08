@@ -1,20 +1,20 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { useContext } from 'react';
-import EditorContext from './EditorContext';
 import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
 import EditorMenuDropdown from './EditorMenuDropdown';
 import languages from './lang.json';
 
 export interface IEditorMenuProps {
-  className?: string | undefined;
+  isEditing?: boolean;
+  toggleEdit?: () => void;
+  language: string;
+  readOnly: boolean;
 }
 
 const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
-  const { toggleEdit, isEditing, language, readOnly } = useContext(EditorContext);
+  const { toggleEdit, isEditing, language, readOnly } = props;
   return (
-    <div className={classNames('tme-menu', props.className)}>
+    <div className="tme-menu">
       {isEditing && (
         <>
           <ul className="tme-menu-group left">

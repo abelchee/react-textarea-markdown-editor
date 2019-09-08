@@ -5,7 +5,6 @@ import { useRef, useState } from 'react';
 import EnhancedTextarea from 'react-enhanced-textarea';
 import EditContext from './EditorContext';
 import EditorMenu from './EditorMenu';
-import Textarea from './Textarea';
 
 const md = new Markdown({
   xhtmlOut: true,
@@ -52,15 +51,9 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
     <div className={classNames('tme-container', props.className)}>
       <EditContext.Provider
         value={{
-          autoFocus: props.autoFocus,
-          defaultValue: props.defaultValue,
-          doParse: props.doParse || doParse,
           focus: () => {
             textareaRef.current!.focus();
           },
-          isEditing: edit,
-          language: props.language || 'en',
-          lineMarkers,
           mark: (prefix: string, suffix: string, defaultText: string, multipleLine: boolean) => {
             if (multipleLine) {
               textareaRef.current!.toggleMultipleLineMarker({ prefix, suffix, defaultText });
@@ -71,28 +64,33 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           markLine: (marker: string) => {
             textareaRef.current!.toggleLineMarker(marker);
           },
-          onChange,
-          readOnly,
           registerLineMarker: (marker: string) => {
             const index = lineMarkers.indexOf(marker);
             if (index < 0) {
               setLineMarkers([...lineMarkers, marker]);
             }
           },
-          rows: props.rows,
-          textareaId: props.textareaId,
-          textareaRef,
-          toggleEdit,
-          value,
         }}
       >
         {props.children ? (
           props.children
         ) : (
           <>
-            <EditorMenu />
+            <EditorMenu readOnly={readOnly} language={props.language!} isEditing={edit} toggleEdit={toggleEdit} />
             {edit ? (
-              <Textarea />
+              <EnhancedTextarea
+                id={props.textareaId}
+                className="tme-textarea"
+                ref={textareaRef}
+                rows={props.rows}
+                autoFocus={props.autoFocus}
+                defaultValue={props.defaultValue}
+                value={value}
+                onChange={onChange}
+                onKeyDown={props.onKeyDown}
+                onKeyPress={props.onKeyPress}
+                lineMarkers={lineMarkers}
+              />
             ) : (
               <div
                 className="tme-viewer"
