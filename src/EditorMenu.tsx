@@ -149,7 +149,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
           </a>
         </li>
         <li className="tme-menu-item" onClick={() => toggleEdit!()}>
-          Preview
+          {isEditing ? 'Preview' : 'Edit'}
         </li>
       </ul>
     </div>
