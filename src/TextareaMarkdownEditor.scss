@@ -89,6 +89,7 @@ $tme-arrow-size: 5px;
         &.tme-link {
           padding: 0;
           & > a {
+            display: inline-block;
             padding: 5px;
           }
         }
