@@ -5,7 +5,7 @@ import { TextareaMarkdownEditor } from 'react-textarea-markdown-editor';
 function App() {
   return (
     <div className="App">
-        <TextareaMarkdownEditor id="123"/>
+        <TextareaMarkdownEditor language="zh"  id="123" rows={10}/>
     </div>
   );
 }

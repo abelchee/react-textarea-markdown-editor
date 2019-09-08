@@ -31,7 +31,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "react-textarea-markdown-editor": "^0.0.1-beta.5"
+    "react-textarea-markdown-editor": "^0.0.2"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1"
