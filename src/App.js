@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { TextareaMarkdownEditor } from 'react-textarea-markdown-editor';
+import TextareaMarkdownEditor from 'react-textarea-markdown-editor';
 
 function App () {
   const [lang, setLang] = useState('en');
