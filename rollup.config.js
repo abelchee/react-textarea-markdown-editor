@@ -3,6 +3,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
 import resolve from 'rollup-plugin-node-resolve';
 import json from 'rollup-plugin-json';
+import svgo from 'rollup-plugin-svgo'
+
 
 import pkg from './package.json';
 
@@ -24,6 +26,7 @@ export default {
   ],
   plugins: [
     json(),
+    svgo(),
     external(),
     resolve({
       preferBuiltins: false,

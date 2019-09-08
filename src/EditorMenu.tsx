@@ -2,6 +2,13 @@ import * as React from 'react';
 import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
 import EditorMenuDropdown from './EditorMenuDropdown';
+// @ts-ignore
+import unorderedListIcon from './icon/unordered-list.svg';
+// @ts-ignore
+import orderedListIcon from './icon/ordered-list.svg';
+// @ts-ignore
+import linkIcon from './icon/link.svg';
+
 import languages from './lang.json';
 
 export interface IEditorMenuProps {
@@ -116,20 +123,14 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                   className="tme-menu-item tme-material-icon"
                   onClick={mark}
                 >
-                  <img
-                    alt=""
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNCAxMC41Yy0uODMgMC0xLjUuNjctMS41IDEuNXMuNjcgMS41IDEuNSAxLjUgMS41LS42NyAxLjUtMS41LS42Ny0xLjUtMS41LTEuNXptMC02Yy0uODMgMC0xLjUuNjctMS41IDEuNVMzLjE3IDcuNSA0IDcuNSA1LjUgNi44MyA1LjUgNiA0LjgzIDQuNSA0IDQuNXptMCAxMmMtLjgzIDAtMS41LjY4LTEuNSAxLjVzLjY4IDEuNSAxLjUgMS41IDEuNS0uNjggMS41LTEuNS0uNjctMS41LTEuNS0xLjV6TTcgMTloMTR2LTJIN3Yyem0wLTZoMTR2LTJIN3Yyem0wLTh2MmgxNFY1SDd6Ii8+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgwVjB6Ii8+PC9zdmc+"
-                  />
+                  <img alt="" src={`data:image/svg+xml;utf8,${unorderedListIcon}`} />
                 </li>
               )}
             </EditorLineMarker>
             <EditorLineMarker marker="1. ">
               {mark => (
                 <li title={languages[language].orderedList} className="tme-menu-item tme-material-icon" onClick={mark}>
-                  <img
-                    alt=""
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMiAxN2gydi41SDN2MWgxdi41SDJ2MWgzdi00SDJ2MXptMS05aDFWNEgydjFoMXYzem0tMSAzaDEuOEwyIDEzLjF2LjloM3YtMUgzLjJMNSAxMC45VjEwSDJ2MXptNS02djJoMTRWNUg3em0wIDE0aDE0di0ySDd2MnptMC02aDE0di0ySDd2MnoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PC9zdmc+"
-                  />
+                  <img alt="" src={`data:image/svg+xml;utf8,${orderedListIcon}`} />
                 </li>
               )}
             </EditorLineMarker>
@@ -138,10 +139,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             <EditorMarker prefix="[" suffix="](url)" defaultText="text">
               {mark => (
                 <li title={languages[language].link} className="tme-menu-item tme-material-icon" onClick={mark}>
-                  <img
-                    alt=""
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTMuOSAxMmMwLTEuNzEgMS4zOS0zLjEgMy4xLTMuMWg0VjdIN2MtMi43NiAwLTUgMi4yNC01IDVzMi4yNCA1IDUgNWg0di0xLjlIN2MtMS43MSAwLTMuMS0xLjM5LTMuMS0zLjF6TTggMTNoOHYtMkg4djJ6bTktNmgtNHYxLjloNGMxLjcxIDAgMy4xIDEuMzkgMy4xIDMuMXMtMS4zOSAzLjEtMy4xIDMuMWgtNFYxN2g0YzIuNzYgMCA1LTIuMjQgNS01cy0yLjI0LTUtNS01eiIvPjwvc3ZnPg=="
-                  />
+                  <img alt="" src={`data:image/svg+xml;utf8,${linkIcon}`} />
                 </li>
               )}
             </EditorMarker>
