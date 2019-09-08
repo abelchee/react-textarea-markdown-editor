@@ -20,6 +20,9 @@ interface IEditorContext {
   focus?: () => void;
   doParse?: (text: string) => string;
   toggleEdit?: () => void;
+  language: string;
 }
 
-export default React.createContext<IEditorContext>({});
+export default React.createContext<IEditorContext>({
+  language: 'en',
+});

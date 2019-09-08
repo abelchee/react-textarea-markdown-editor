@@ -1,0 +1,32 @@
+{
+  "en": {
+    "headers": "Headers",
+    "text": "Text",
+    "orderedList": "Ordered List",
+    "unorderedList": "Unordered List",
+    "link": "Link",
+    "preview": "Preview",
+    "edit": "Edit",
+    "bold": "Bold",
+    "italic": "Italic",
+    "strikethrough": "Strikethrough",
+    "blockquote": "Blockquote",
+    "inlineCode": "Inline code",
+    "code": "Code"
+  },
+  "zh": {
+    "headers": "页眉",
+    "text": "文本",
+    "orderedList": "有序列表",
+    "unorderedList": "无序列表",
+    "link": "链接",
+    "preview": "预览",
+    "edit": "编辑",
+    "bold": "加粗",
+    "italic": "斜体",
+    "strikethrough": "划线",
+    "blockquote": "引用",
+    "inlineCode": "内置代码",
+    "code": "代码"
+  }
+}

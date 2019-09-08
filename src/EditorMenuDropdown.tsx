@@ -7,6 +7,7 @@ import EditorContext from './EditorContext';
 
 export interface IEditorMenuDropdownProps {
   className?: string | undefined;
+  title?: string | undefined;
   text: React.ReactElement | string;
   children: React.ReactElement;
 }
@@ -20,6 +21,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
   });
   return (
     <li
+      title={props.title}
       ref={ref}
       className={classNames('tme-menu-item tme-dropdown', props.className)}
       onClick={() => {

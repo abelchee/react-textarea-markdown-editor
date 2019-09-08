@@ -29,6 +29,7 @@ export interface ITextareaMarkdownEditor {
   onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
   doParse?: (text: string) => string;
+  language?: string;
 }
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
@@ -56,6 +57,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
             textareaRef.current!.focus();
           },
           isEditing: edit,
+          language: props.language || 'en',
           lineMarkers,
           mark: (prefix: string, suffix: string, defaultText: string, multipleLine: boolean) => {
             if (multipleLine) {
@@ -104,6 +106,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
 };
 
 TextareaMarkdownEditor.defaultProps = {
+  language: 'en',
   rows: 5,
 };
 
