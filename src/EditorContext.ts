@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { RefObject } from 'react';
-import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
+import EnhancedTextarea from 'react-enhanced-textarea';
 
 interface IEditorContext {
-  textareaRef?: RefObject<IEnhancedTextareaHandles>;
+  textareaRef?: RefObject<EnhancedTextarea>;
   textareaId?: string | undefined;
   rows?: number;
   defaultValue?: string | undefined;

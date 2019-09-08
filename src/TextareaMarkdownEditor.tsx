@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Markdown from 'markdown-it';
 import * as React from 'react';
 import { useRef, useState } from 'react';
-import { IEnhancedTextareaHandles } from 'react-enhanced-textarea';
+import EnhancedTextarea from 'react-enhanced-textarea';
 import EditContext from './EditorContext';
 import EditorMenu from './EditorMenu';
 import Textarea from './Textarea';
@@ -32,7 +32,7 @@ export interface ITextareaMarkdownEditor {
 }
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
-  const textareaRef = useRef<IEnhancedTextareaHandles>(null);
+  const textareaRef = useRef<EnhancedTextarea>(null);
   const [lineMarkers, setLineMarkers] = useState<string[]>([]);
   const [edit, setEdit] = useState(true);
   const [value, setValue] = useState(props.value || props.defaultValue);

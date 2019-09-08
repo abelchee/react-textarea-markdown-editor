@@ -84,7 +84,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "markdown-it": "^9.1.0",
-    "react-enhanced-textarea": "2.0.12",
+    "react-enhanced-textarea": "2.1.2",
     "react-use": "^12.2.0"
   }
 }
