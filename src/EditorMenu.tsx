@@ -8,6 +8,8 @@ import unorderedListIcon from './icon/unordered-list.svg';
 import orderedListIcon from './icon/ordered-list.svg';
 // @ts-ignore
 import linkIcon from './icon/link.svg';
+// @ts-ignore
+import textIcon from './icon/text.svg';
 
 import languages from './lang.json';
 
@@ -62,12 +64,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             <EditorMenuDropdown
               className="tme-material-icon"
               title={languages[language].text}
-              text={
-                <img
-                  alt=""
-                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGRlZnM+PHBhdGggaWQ9ImEiIGQ9Ik0yNCAyNEgwVjBoMjR2MjR6Ii8+PC9kZWZzPjxjbGlwUGF0aCBpZD0iYiI+PHVzZSB4bGluazpocmVmPSIjYSIgb3ZlcmZsb3c9InZpc2libGUiLz48L2NsaXBQYXRoPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNiKSIgZD0iTTIuNSA0djNoNXYxMmgzVjdoNVY0aC0xM3ptMTkgNWgtOXYzaDN2N2gzdi03aDNWOXoiLz48L3N2Zz4="
-                />
-              }
+              text={<img alt="" src={textIcon} />}
             >
               <ul>
                 <EditorMarker prefix="**" suffix="**" defaultText="bold">
@@ -123,14 +120,14 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                   className="tme-menu-item tme-material-icon"
                   onClick={mark}
                 >
-                  <img alt="" src={`data:image/svg+xml;utf8,${unorderedListIcon}`} />
+                  <img alt="" src={unorderedListIcon} />
                 </li>
               )}
             </EditorLineMarker>
             <EditorLineMarker marker="1. ">
               {mark => (
                 <li title={languages[language].orderedList} className="tme-menu-item tme-material-icon" onClick={mark}>
-                  <img alt="" src={`data:image/svg+xml;utf8,${orderedListIcon}`} />
+                  <img alt="" src={orderedListIcon} />
                 </li>
               )}
             </EditorLineMarker>
@@ -139,7 +136,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             <EditorMarker prefix="[" suffix="](url)" defaultText="text">
               {mark => (
                 <li title={languages[language].link} className="tme-menu-item tme-material-icon" onClick={mark}>
-                  <img alt="" src={`data:image/svg+xml;utf8,${linkIcon}`} />
+                  <img alt="" src={linkIcon} />
                 </li>
               )}
             </EditorMarker>
