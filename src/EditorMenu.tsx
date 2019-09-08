@@ -12,7 +12,7 @@ export interface IEditorMenuProps {
 }
 
 const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
-  const { toggleEdit, isEditing, language } = useContext(EditorContext);
+  const { toggleEdit, isEditing, language, readOnly } = useContext(EditorContext);
   return (
     <div className={classNames('tme-menu', props.className)}>
       {isEditing && (
@@ -154,9 +154,11 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             <b>?</b>
           </a>
         </li>
-        <li className="tme-menu-item" onClick={() => toggleEdit!()}>
-          {isEditing ? languages[language].preview : languages[language].edit}
-        </li>
+        {!readOnly && (
+          <li className="tme-menu-item" onClick={() => toggleEdit!()}>
+            {isEditing ? languages[language].preview : languages[language].edit}
+          </li>
+        )}
       </ul>
     </div>
   );

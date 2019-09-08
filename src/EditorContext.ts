@@ -21,8 +21,10 @@ interface IEditorContext {
   doParse?: (text: string) => string;
   toggleEdit?: () => void;
   language: string;
+  readOnly: boolean;
 }
 
 export default React.createContext<IEditorContext>({
   language: 'en',
+  readOnly: false,
 });

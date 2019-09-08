@@ -25,6 +25,7 @@ export interface ITextareaMarkdownEditor {
   defaultValue?: string | undefined;
   value?: string | undefined;
   autoFocus?: boolean;
+  readOnly?: boolean;
   onChange?: (textarea: HTMLTextAreaElement) => {} | undefined;
   onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
@@ -33,9 +34,10 @@ export interface ITextareaMarkdownEditor {
 }
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
+  const { readOnly = false } = props;
   const textareaRef = useRef<EnhancedTextarea>(null);
   const [lineMarkers, setLineMarkers] = useState<string[]>([]);
-  const [edit, setEdit] = useState(true);
+  const [edit, setEdit] = useState(!readOnly);
   const [value, setValue] = useState(props.value || props.defaultValue);
   function toggleEdit() {
     setEdit(!edit);
@@ -70,6 +72,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
             textareaRef.current!.toggleLineMarker(marker);
           },
           onChange,
+          readOnly,
           registerLineMarker: (marker: string) => {
             const index = lineMarkers.indexOf(marker);
             if (index < 0) {
@@ -107,6 +110,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
 
 TextareaMarkdownEditor.defaultProps = {
   language: 'en',
+  readOnly: false,
   rows: 5,
 };
 
