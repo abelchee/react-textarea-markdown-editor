@@ -3,13 +3,13 @@ import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
 import EditorMenuDropdown from './EditorMenuDropdown';
 // @ts-ignore
-import unorderedListIcon from './icon/unordered-list.svg';
+import linkIcon from './icon/link.svg';
 // @ts-ignore
 import orderedListIcon from './icon/ordered-list.svg';
 // @ts-ignore
-import linkIcon from './icon/link.svg';
-// @ts-ignore
 import textIcon from './icon/text.svg';
+// @ts-ignore
+import unorderedListIcon from './icon/unordered-list.svg';
 
 import languages from './lang.json';
 
