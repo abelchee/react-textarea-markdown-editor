@@ -110,14 +110,17 @@ $tme-arrow-size: 5px;
         }
 
         &.tme-dropdown {
-          position: relative;
+          padding: 0;
+          .tme-dropdown-text {
+            padding: 5px;
+            display: inline-block;
+          }
           .tme-dropdown-arrow {
             display: inline-block;
-            width: 16px;
-            height: 15px;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48cGF0aCBkPSJNNy40MSA4LjU5TDEyIDEzLjE3bDQuNTktNC41OEwxOCAxMGwtNiA2LTYtNiAxLjQxLTEuNDF6Ii8+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgwVjB6Ii8+PC9zdmc+')
-              no-repeat center center;
-            background-size: 80% 80%;
+            width: 10px;
+            img {
+              width: 100%;
+            }
           }
         }
         .tme-dropdown-content {

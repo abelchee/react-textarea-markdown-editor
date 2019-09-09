@@ -4,6 +4,8 @@ import { useContext, useState } from 'react';
 import { useRef } from 'react';
 import useClickAway from 'react-use/lib/useClickAway';
 import EditorContext from './EditorContext';
+// @ts-ignore
+import arrowIcon from './icon/arrow.svg';
 
 export interface IEditorMenuDropdownProps {
   className?: string | undefined;
@@ -31,8 +33,10 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
         }
       }}
     >
-      {props.text}
-      <i className="tme-dropdown-arrow" />
+      <span className="tme-dropdown-text">{props.text}</span>
+      <span className="tme-dropdown-arrow">
+        <img alt="" src={arrowIcon} />
+      </span>
       <div
         className={classNames('tme-dropdown-content', {
           show,
