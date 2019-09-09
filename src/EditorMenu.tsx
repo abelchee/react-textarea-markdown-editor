@@ -22,28 +22,28 @@ export interface IEditorMenuProps {
 
 const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
   const { toggleEdit, isEditing, language, readOnly } = props;
-  const markers = [
-    {
-      markers: [
-        {
-          marker: '# ',
-          short: <b>H1 #</b>,
-          type: 'line-marker',
-        },
-        {
-          marker: '## ',
-          short: <b>H2 #</b>,
-          type: 'line-marker',
-        },
-        {
-          marker: '### ',
-          short: <b>H3 #</b>,
-          type: 'line-marker',
-        },
-      ],
-      type: 'group',
-    },
-  ];
+  // const markers = [
+  //   {
+  //     markers: [
+  //       {
+  //         marker: '# ',
+  //         short: <b>H1 #</b>,
+  //         type: 'line-marker',
+  //       },
+  //       {
+  //         marker: '## ',
+  //         short: <b>H2 #</b>,
+  //         type: 'line-marker',
+  //       },
+  //       {
+  //         marker: '### ',
+  //         short: <b>H3 #</b>,
+  //         type: 'line-marker',
+  //       },
+  //     ],
+  //     type: 'group',
+  //   },
+  // ];
   return (
     <div className="tme-menu">
       {isEditing && (
