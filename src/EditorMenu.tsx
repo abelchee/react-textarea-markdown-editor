@@ -173,7 +173,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
         </li>
         {!readOnly && (
           <li className="tme-menu-item" onClick={() => toggleEdit!()}>
-            {isEditing ? languages[language].preview : languages[language].edit}
+            <span>{isEditing ? languages[language].preview : languages[language].edit}</span>
           </li>
         )}
       </ul>
