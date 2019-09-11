@@ -83,11 +83,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             </EditorMenuDropdown>
           </ul>
           <ul className="tme-menu-group left">
-            <EditorMenuDropdown
-              className="tme-material-icon"
-              title={languages[language].text}
-              text={<img alt="" src={textIcon} />}
-            >
+            <EditorMenuDropdown title={languages[language].text} text={<img alt="" src={textIcon} />}>
               <ul>
                 <EditorMarker prefix="**" suffix="**" defaultText="bold">
                   {mark => (
@@ -137,19 +133,19 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
           <ul className="tme-menu-group left">
             <EditorLineMarker marker="* ">
               {mark => (
-                <li
-                  title={languages[language].unorderedList}
-                  className="tme-menu-item tme-material-icon"
-                  onClick={mark}
-                >
-                  <img alt="" src={unorderedListIcon} />
+                <li title={languages[language].unorderedList} className="tme-menu-item" onClick={mark}>
+                  <span className="tme-menu-item-inner">
+                    <img alt="" src={unorderedListIcon} />
+                  </span>
                 </li>
               )}
             </EditorLineMarker>
             <EditorLineMarker marker="1. ">
               {mark => (
-                <li title={languages[language].orderedList} className="tme-menu-item tme-material-icon" onClick={mark}>
-                  <img alt="" src={orderedListIcon} />
+                <li title={languages[language].orderedList} className="tme-menu-item" onClick={mark}>
+                  <span className="tme-menu-item-inner">
+                    <img alt="" src={orderedListIcon} />
+                  </span>
                 </li>
               )}
             </EditorLineMarker>
@@ -157,8 +153,10 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
           <ul className="tme-menu-group left">
             <EditorMarker prefix="[" suffix="](url)" defaultText="text">
               {mark => (
-                <li title={languages[language].link} className="tme-menu-item tme-material-icon" onClick={mark}>
-                  <img alt="" src={linkIcon} />
+                <li title={languages[language].link} className="tme-menu-item" onClick={mark}>
+                  <span className="tme-menu-item-inner">
+                    <img alt="" src={linkIcon} />
+                  </span>
                 </li>
               )}
             </EditorMarker>
@@ -173,7 +171,9 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
         </li>
         {!readOnly && (
           <li className="tme-menu-item" onClick={() => toggleEdit!()}>
-            <span>{isEditing ? languages[language].preview : languages[language].edit}</span>
+            <span className="tme-menu-item-inner">
+              {isEditing ? languages[language].preview : languages[language].edit}
+            </span>
           </li>
         )}
       </ul>

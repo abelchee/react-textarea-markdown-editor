@@ -22,19 +22,17 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
     toggleShow(false);
   });
   return (
-    <li
-      title={props.title}
-      ref={ref}
-      className={classNames('tme-menu-item tme-dropdown', props.className)}
-      onClick={() => {
-        toggleShow(!show);
-        if (!show) {
-          focus!();
-        }
-      }}
-    >
-      <span className="tme-dropdown-text">{props.text}</span>
-      <span className="tme-dropdown-arrow">
+    <li title={props.title} ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)}>
+      <span className="tme-menu-item-inner">{props.text}</span>
+      <span
+        className="tme-dropdown-arrow"
+        onClick={() => {
+          toggleShow(!show);
+          if (!show) {
+            focus!();
+          }
+        }}
+      >
         <img alt="" src={arrowIcon} />
       </span>
       <div
