@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { useContext, useState } from 'react';
-import { useRef } from 'react';
+import { useContext, useRef, useState } from 'react';
 import useClickAway from 'react-use/lib/useClickAway';
 import EditorContext from './EditorContext';
 import EditorLineMarker from './EditorLineMarker';
@@ -27,32 +26,10 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
   let dropdownTrigger;
   switch (currentMarker.type) {
     case 'line-marker':
-      dropdownTrigger = (
-        <EditorLineMarker key={currentMarker.key} marker={currentMarker.marker}>
-          {mark => (
-            <span className="tme-menu-item-inner tme-dropdown-trigger" onClick={mark}>
-              {currentMarker.name}
-            </span>
-          )}
-        </EditorLineMarker>
-      );
+      dropdownTrigger = <EditorLineMarker key={currentMarker.key} config={currentMarker} />;
       break;
     case 'marker':
-      dropdownTrigger = (
-        <EditorMarker
-          key={currentMarker.key}
-          prefix={currentMarker.prefix}
-          suffix={currentMarker.suffix}
-          defaultText={currentMarker.defaultText}
-          multipleLine={currentMarker.multipleLine}
-        >
-          {mark => (
-            <span className="tme-menu-item-inner tme-dropdown-trigger" onClick={mark}>
-              {currentMarker.name}
-            </span>
-          )}
-        </EditorMarker>
-      );
+      dropdownTrigger = <EditorMarker key={currentMarker.key} config={currentMarker} />;
       break;
   }
   return (
@@ -76,48 +53,30 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
       >
         <ul>
           {config.markers.map(marker => {
+            let cmp: React.ReactElement | undefined;
             switch (marker.type) {
               case 'line-marker':
-                return (
-                  <EditorLineMarker key={marker.key} marker={marker.marker}>
-                    {mark => (
-                      <li
-                        className="tme-menu-item"
-                        onClick={() => {
-                          toggleShow(!show);
-                          mark();
-                          setCurrentMarker(marker);
-                        }}
-                      >
-                        {marker.name}
-                      </li>
-                    )}
-                  </EditorLineMarker>
-                );
+                cmp = <EditorLineMarker config={marker} />;
+                break;
               case 'marker':
-                return (
-                  <EditorMarker
-                    key={marker.key}
-                    prefix={marker.prefix}
-                    suffix={marker.suffix}
-                    defaultText={marker.defaultText}
-                    multipleLine={marker.multipleLine}
-                  >
-                    {mark => (
-                      <li
-                        className="tme-menu-item"
-                        onClick={() => {
-                          toggleShow(!show);
-                          mark();
-                          setCurrentMarker(marker);
-                        }}
-                      >
-                        {marker.name}
-                      </li>
-                    )}
-                  </EditorMarker>
-                );
+                cmp = <EditorMarker config={marker} />;
+                break;
+              default:
+                cmp = undefined;
+                break;
             }
+            return (
+              <li
+                className="tme-menu-item tme-dropdown-item"
+                key={marker.key}
+                onClick={() => {
+                  setCurrentMarker(marker);
+                  toggleShow(false);
+                }}
+              >
+                {cmp}
+              </li>
+            );
           })}
         </ul>
       </div>

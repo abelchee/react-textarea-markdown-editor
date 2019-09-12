@@ -1,16 +1,33 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import { useContext } from 'react';
 import EditorContext from './EditorContext';
+import { ILineMarker } from './type';
 
 export interface IEditorLineMarkerProps {
-  marker: string;
-  children: (mark: () => void) => React.ReactElement;
+  config: ILineMarker;
+  className?: string;
+  onClick?: () => void;
+  removeInnerClass?: boolean;
 }
 
 const EditorLineMarker: React.FunctionComponent<IEditorLineMarkerProps> = props => {
   const { markLine, registerLineMarker } = useContext(EditorContext);
-  registerLineMarker!(props.marker);
-  return props.children(() => markLine!(props.marker));
+  const { config } = props;
+  registerLineMarker!(config.marker);
+  return (
+    <span
+      onClick={() => {
+        markLine!(config.marker);
+        if (props.onClick) {
+          props.onClick();
+        }
+      }}
+      className={classNames({ 'tme-menu-item-inner': !props.removeInnerClass }, props.className)}
+    >
+      {config.name}
+    </span>
+  );
 };
 
 export default EditorLineMarker;

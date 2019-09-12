@@ -69,8 +69,7 @@ $tme-arrow-size: 5px;
         text-align: center;
         display: flex;
         flex-direction: row;
-        align-items: center;
-        text-align: center;
+        align-items: stretch;
 
         &:hover {
           border: 1px solid #959595 !important;
@@ -87,9 +86,14 @@ $tme-arrow-size: 5px;
           text-decoration: none;
         }
 
-        &.tme-link > a {
-          width: 100%;
-          min-width: 30px;
+        &.tme-link {
+          & > a {
+            width: 100%;
+            min-width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
 
         .tme-menu-item-inner {
@@ -106,7 +110,7 @@ $tme-arrow-size: 5px;
 
         &.tme-dropdown {
           .tme-dropdown-arrow {
-            width: 10px;
+            width: 11px;
             height: 100%;
             display: flex;
             align-items: center;
@@ -155,10 +159,16 @@ $tme-arrow-size: 5px;
             width: 100%;
             white-space: nowrap;
             border-bottom: 1px solid #d4d4d5;
-            padding: 5px;
             &:hover {
               background-color: #f9f9f9;
               cursor: pointer;
+            }
+            &.tme-dropdown-item {
+              padding: 0;
+              & > .tme-menu-item-inner {
+                justify-content: flex-start;
+                padding: 5px;
+              }
             }
           }
         }

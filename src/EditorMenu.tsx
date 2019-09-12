@@ -166,29 +166,15 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 switch (marker.type) {
                   case 'line-marker':
                     return (
-                      <EditorLineMarker key={marker.key} marker={marker.marker}>
-                        {mark => (
-                          <li className="tme-menu-item" onClick={mark}>
-                            <span className="tme-menu-item-inner">{marker.name}</span>
-                          </li>
-                        )}
-                      </EditorLineMarker>
+                      <li className="tme-menu-item" key={marker.key}>
+                        <EditorLineMarker config={marker} />
+                      </li>
                     );
                   case 'marker':
                     return (
-                      <EditorMarker
-                        key={marker.key}
-                        prefix={marker.prefix}
-                        suffix={marker.suffix}
-                        defaultText={marker.defaultText}
-                        multipleLine={marker.multipleLine}
-                      >
-                        {mark => (
-                          <li className="tme-menu-item" onClick={mark}>
-                            <span className="tme-menu-item-inner">{marker.name}</span>
-                          </li>
-                        )}
-                      </EditorMarker>
+                      <li className="tme-menu-item" key={marker.key}>
+                        <EditorMarker config={marker} />
+                      </li>
                     );
                   case 'dropdown':
                     return <EditorMenuDropdown key={marker.key} config={marker} />;
