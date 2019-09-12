@@ -44,6 +44,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
           prefix={currentMarker.prefix}
           suffix={currentMarker.suffix}
           defaultText={currentMarker.defaultText}
+          multipleLine={currentMarker.multipleLine}
         >
           {mark => (
             <span className="tme-menu-item-inner tme-dropdown-trigger" onClick={mark}>
@@ -100,6 +101,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                     prefix={marker.prefix}
                     suffix={marker.suffix}
                     defaultText={marker.defaultText}
+                    multipleLine={marker.multipleLine}
                   >
                     {mark => (
                       <li

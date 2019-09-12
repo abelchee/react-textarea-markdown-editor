@@ -114,7 +114,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
               {
                 defaultText: 'code',
                 key: 'code',
-                long: languages[language].inlineCode,
+                long: languages[language].code,
                 multipleLine: true,
                 prefix: '```',
                 suffix: '```',
@@ -185,6 +185,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                         prefix={marker.prefix}
                         suffix={marker.suffix}
                         defaultText={marker.defaultText}
+                        multipleLine={marker.multipleLine}
                       >
                         {mark => (
                           <li className="tme-menu-item" onClick={mark}>
