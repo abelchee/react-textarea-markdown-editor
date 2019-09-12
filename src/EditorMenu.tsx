@@ -35,26 +35,26 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             markers: [
               {
                 key: 'h1',
-                long: <b>H1</b>,
                 marker: '# ',
+                name: <b>H1</b>,
                 type: 'line-marker',
               },
               {
                 key: 'h2',
-                long: <b>H2</b>,
                 marker: '## ',
+                name: <b>H2</b>,
                 type: 'line-marker',
               },
               {
                 key: 'h3',
-                long: <b>H3</b>,
                 marker: '### ',
+                name: <b>H3</b>,
                 type: 'line-marker',
               },
               {
                 key: 'h4',
-                long: <b>H4</b>,
                 marker: '#### ',
+                name: <b>H4</b>,
                 type: 'line-marker',
               },
             ],
@@ -72,7 +72,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
               {
                 defaultText: 'bold',
                 key: 'bold',
-                long: <b>{languages[language].bold}</b>,
+                name: <b>{languages[language].bold}</b>,
                 prefix: '**',
                 suffix: '**',
                 type: 'marker',
@@ -80,7 +80,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
               {
                 defaultText: 'italic',
                 key: 'italic',
-                long: <i>{languages[language].italic}</i>,
+                name: <i>{languages[language].italic}</i>,
                 prefix: '*',
                 suffix: '*',
                 type: 'marker',
@@ -88,21 +88,21 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
               {
                 defaultText: 'strikethrough',
                 key: 'strikethrough',
-                long: <del>{languages[language].strikethrough}</del>,
+                name: <del>{languages[language].strikethrough}</del>,
                 prefix: '~~',
                 suffix: '~~',
                 type: 'marker',
               },
               {
                 key: 'blockquote',
-                long: languages[language].blockquote,
                 marker: '> ',
+                name: languages[language].blockquote,
                 type: 'line-marker',
               },
               {
                 defaultText: 'inline code',
                 key: 'inline-code',
-                long: languages[language].inlineCode,
+                name: languages[language].inlineCode,
                 prefix: '`',
                 suffix: '`',
                 type: 'marker',
@@ -110,8 +110,8 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
               {
                 defaultText: 'code',
                 key: 'code',
-                long: languages[language].code,
                 multipleLine: true,
+                name: languages[language].code,
                 prefix: '```',
                 suffix: '```',
                 type: 'marker',
@@ -127,14 +127,14 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
         markers: [
           {
             key: 'unordered-list',
-            long: <img alt="" src={unorderedListIcon} />,
             marker: '* ',
+            name: <img alt="" src={unorderedListIcon} />,
             type: 'line-marker',
           },
           {
             key: 'ordered-list',
-            long: <img alt="" src={orderedListIcon} />,
             marker: '1. ',
+            name: <img alt="" src={orderedListIcon} />,
             type: 'line-marker',
           },
         ],
@@ -146,7 +146,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
           {
             defaultText: 'text',
             key: 'link',
-            long: <img alt="" src={linkIcon} />,
+            name: <img alt="" src={linkIcon} />,
             prefix: '[',
             suffix: '](url)',
             type: 'marker',
@@ -169,7 +169,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                       <EditorLineMarker key={marker.key} marker={marker.marker}>
                         {mark => (
                           <li className="tme-menu-item" onClick={mark}>
-                            <span className="tme-menu-item-inner">{marker.long}</span>
+                            <span className="tme-menu-item-inner">{marker.name}</span>
                           </li>
                         )}
                       </EditorLineMarker>
@@ -185,7 +185,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                       >
                         {mark => (
                           <li className="tme-menu-item" onClick={mark}>
-                            <span className="tme-menu-item-inner">{marker.long}</span>
+                            <span className="tme-menu-item-inner">{marker.name}</span>
                           </li>
                         )}
                       </EditorMarker>
