@@ -89,7 +89,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                           setCurrentMarker(marker);
                         }}
                       >
-                        {marker.short || marker.long}
+                        {marker.long || marker.short}
                       </li>
                     )}
                   </EditorLineMarker>
@@ -112,7 +112,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                           setCurrentMarker(marker);
                         }}
                       >
-                        {marker.short || marker.long}
+                        {marker.long || marker.short}
                       </li>
                     )}
                   </EditorMarker>
