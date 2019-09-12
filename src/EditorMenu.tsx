@@ -37,24 +37,28 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 key: 'h1',
                 marker: '# ',
                 name: <b>H1</b>,
+                title: languages[language].header1,
                 type: 'line-marker',
               },
               {
                 key: 'h2',
                 marker: '## ',
                 name: <b>H2</b>,
+                title: languages[language].header2,
                 type: 'line-marker',
               },
               {
                 key: 'h3',
                 marker: '### ',
                 name: <b>H3</b>,
+                title: languages[language].header3,
                 type: 'line-marker',
               },
               {
                 key: 'h4',
                 marker: '#### ',
                 name: <b>H4</b>,
+                title: languages[language].header4,
                 type: 'line-marker',
               },
             ],
@@ -75,6 +79,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 name: <b>{languages[language].bold}</b>,
                 prefix: '**',
                 suffix: '**',
+                title: languages[language].bold,
                 type: 'marker',
               },
               {
@@ -83,6 +88,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 name: <i>{languages[language].italic}</i>,
                 prefix: '*',
                 suffix: '*',
+                title: languages[language].italic,
                 type: 'marker',
               },
               {
@@ -91,12 +97,14 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 name: <del>{languages[language].strikethrough}</del>,
                 prefix: '~~',
                 suffix: '~~',
+                title: languages[language].strikethrough,
                 type: 'marker',
               },
               {
                 key: 'blockquote',
                 marker: '> ',
                 name: languages[language].blockquote,
+                title: languages[language].blockquote,
                 type: 'line-marker',
               },
               {
@@ -105,6 +113,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 name: languages[language].inlineCode,
                 prefix: '`',
                 suffix: '`',
+                title: languages[language].inlineCode,
                 type: 'marker',
               },
               {
@@ -114,6 +123,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 name: languages[language].code,
                 prefix: '```',
                 suffix: '```',
+                title: languages[language].code,
                 type: 'marker',
               },
             ],
@@ -129,12 +139,14 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             key: 'unordered-list',
             marker: '* ',
             name: <img alt="" src={unorderedListIcon} />,
+            title: languages[language].unorderedList,
             type: 'line-marker',
           },
           {
             key: 'ordered-list',
             marker: '1. ',
             name: <img alt="" src={orderedListIcon} />,
+            title: languages[language].orderedList,
             type: 'line-marker',
           },
         ],
@@ -149,6 +161,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             name: <img alt="" src={linkIcon} />,
             prefix: '[',
             suffix: '](url)',
+            title: languages[language].link,
             type: 'marker',
           },
         ],
@@ -166,13 +179,13 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 switch (marker.type) {
                   case 'line-marker':
                     return (
-                      <li className="tme-menu-item" key={marker.key}>
+                      <li className="tme-menu-item" key={marker.key} title={marker.title}>
                         <EditorLineMarker config={marker} />
                       </li>
                     );
                   case 'marker':
                     return (
-                      <li className="tme-menu-item" key={marker.key}>
+                      <li className="tme-menu-item" key={marker.key} title={marker.title}>
                         <EditorMarker config={marker} />
                       </li>
                     );

@@ -1,6 +1,9 @@
 {
   "en": {
-    "headers": "Headers",
+    "header1": "<h1></h1>",
+    "header2": "<h2></h2>",
+    "header3": "<h3></h3>",
+    "header4": "<h4></h4>",
     "text": "Text",
     "orderedList": "Ordered List",
     "unorderedList": "Unordered List",
@@ -15,7 +18,10 @@
     "code": "Code"
   },
   "zh": {
-    "headers": "页眉",
+    "header1": "<h1></h1>",
+    "header2": "<h2></h2>",
+    "header3": "<h3></h3>",
+    "header4": "<h4></h4>",
     "text": "文本",
     "orderedList": "有序列表",
     "unorderedList": "无序列表",

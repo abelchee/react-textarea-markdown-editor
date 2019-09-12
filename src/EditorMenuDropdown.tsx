@@ -34,7 +34,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
       break;
   }
   return (
-    <li ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)}>
+    <li ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)} title={currentMarker.title}>
       {dropdownTrigger}
       <span
         className="tme-dropdown-arrow"
@@ -61,6 +61,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                 setIndex(i);
                 setShow(false);
               }}
+              title={marker.title}
             >
               {marker.type === 'line-marker' ? <EditorLineMarker config={marker} /> : <EditorMarker config={marker} />}
             </li>
