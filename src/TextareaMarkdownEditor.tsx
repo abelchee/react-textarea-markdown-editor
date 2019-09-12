@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 import Markdown from 'markdown-it';
+// @ts-ignore
+import markdownVideo from 'markdown-it-video';
 import * as React from 'react';
 import { useRef, useState } from 'react';
 import EnhancedTextarea from 'react-enhanced-textarea';
@@ -8,6 +10,9 @@ import EditorMenu from './EditorMenu';
 
 const md = new Markdown({
   xhtmlOut: true,
+});
+md.use(markdownVideo, {
+  youtube: { width: 640, height: 390 },
 });
 
 function doParse(text: string) {
