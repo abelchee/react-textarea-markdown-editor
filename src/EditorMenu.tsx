@@ -7,14 +7,7 @@ import linkIcon from './icon/link.svg';
 // @ts-ignore
 import orderedListIcon from './icon/ordered-list.svg';
 // @ts-ignore
-import tableIcon from './icon/table.svg';
-// @ts-ignore
-import textIcon from './icon/text.svg';
-// @ts-ignore
 import unorderedListIcon from './icon/unordered-list.svg';
-
-// @ts-ignore
-import youtubeIcon from './icon/youtube.svg';
 
 import EditorTemplateMarker from './EditorTemplateMarker';
 import languages from './lang.json';
@@ -163,18 +156,6 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             title: languages[language].orderedList,
             type: 'line-marker',
           },
-          {
-            key: 'table',
-            multipleLine: true,
-            name: <img alt="" src={tableIcon} />,
-            template: `| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |`,
-            title: languages[language].table,
-            type: 'template',
-          },
         ],
         type: 'group',
       },
@@ -188,15 +169,6 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             prefix: '[',
             suffix: '](url)',
             title: languages[language].link,
-            type: 'marker',
-          },
-          {
-            defaultText: 'YMmdQw17TU4',
-            key: 'youtube',
-            name: <img alt="" src={youtubeIcon} />,
-            prefix: '@[youtube](',
-            suffix: ')',
-            title: languages[language].youtube,
             type: 'marker',
           },
         ],

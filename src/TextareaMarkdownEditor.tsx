@@ -1,18 +1,14 @@
 import classNames from 'classnames';
 import Markdown from 'markdown-it';
-// @ts-ignore
-import markdownVideo from 'markdown-it-video';
 import * as React from 'react';
 import { useRef, useState } from 'react';
 import EnhancedTextarea from 'react-enhanced-textarea';
 import EditContext from './EditorContext';
 import EditorMenu from './EditorMenu';
+import { IMarkerGroup } from './type';
 
 const md = new Markdown({
   xhtmlOut: true,
-});
-md.use(markdownVideo, {
-  youtube: { width: 640, height: 390 },
 });
 
 function doParse(text: string) {
@@ -35,6 +31,7 @@ export interface ITextareaMarkdownEditor {
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
   doParse?: (text: string) => string;
   language?: string;
+  markers?: IMarkerGroup[];
 }
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
@@ -91,7 +88,13 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           props.children
         ) : (
           <>
-            <EditorMenu readOnly={readOnly} language={props.language!} isEditing={edit} toggleEdit={toggleEdit} />
+            <EditorMenu
+              markers={props.markers}
+              readOnly={readOnly}
+              language={props.language!}
+              isEditing={edit}
+              toggleEdit={toggleEdit}
+            />
             {edit ? (
               <EnhancedTextarea
                 id={props.textareaId}
