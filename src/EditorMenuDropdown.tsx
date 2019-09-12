@@ -17,12 +17,13 @@ export interface IEditorMenuDropdownProps {
 const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = props => {
   const { config } = props;
   const [show, toggleShow] = useState(false);
-  const [currentMarker, setCurrentMarker] = useState(config.markers[0]);
+  const [index, setIndex] = useState(0);
   const { focus } = useContext(EditorContext);
   const ref = useRef(null);
   useClickAway(ref, () => {
     toggleShow(false);
   });
+  const currentMarker = config.markers[index];
   let dropdownTrigger;
   switch (currentMarker.type) {
     case 'line-marker':
@@ -52,7 +53,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
         })}
       >
         <ul>
-          {config.markers.map(marker => {
+          {config.markers.map((marker, i) => {
             let cmp: React.ReactElement | undefined;
             switch (marker.type) {
               case 'line-marker':
@@ -70,7 +71,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                 className="tme-menu-item tme-dropdown-item"
                 key={marker.key}
                 onClick={() => {
-                  setCurrentMarker(marker);
+                  setIndex(i);
                   toggleShow(false);
                 }}
               >
