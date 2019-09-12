@@ -16,12 +16,12 @@ export interface IEditorMenuDropdownProps {
 
 const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = props => {
   const { config } = props;
-  const [show, toggleShow] = useState(false);
+  const [show, setShow] = useState(false);
   const [index, setIndex] = useState(0);
   const { focus } = useContext(EditorContext);
   const ref = useRef(null);
   useClickAway(ref, () => {
-    toggleShow(false);
+    setShow(false);
   });
   const currentMarker = config.markers[index];
   let dropdownTrigger;
@@ -39,7 +39,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
       <span
         className="tme-dropdown-arrow"
         onClick={() => {
-          toggleShow(!show);
+          setShow(!show);
           if (!show) {
             focus!();
           }
@@ -72,7 +72,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                 key={marker.key}
                 onClick={() => {
                   setIndex(i);
-                  toggleShow(false);
+                  setShow(false);
                 }}
               >
                 {cmp}
