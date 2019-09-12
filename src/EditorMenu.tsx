@@ -12,155 +12,194 @@ import textIcon from './icon/text.svg';
 import unorderedListIcon from './icon/unordered-list.svg';
 
 import languages from './lang.json';
+import { IMarkerGroup } from './type';
 
 export interface IEditorMenuProps {
   isEditing?: boolean;
   toggleEdit?: () => void;
   language: string;
   readOnly: boolean;
+  markers?: IMarkerGroup[];
 }
 
 const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
   const { toggleEdit, isEditing, language, readOnly } = props;
-  // const markers = [
-  //   {
-  //     markers: [
-  //       {
-  //         marker: '# ',
-  //         short: <b>H1 #</b>,
-  //         type: 'line-marker',
-  //       },
-  //       {
-  //         marker: '## ',
-  //         short: <b>H2 #</b>,
-  //         type: 'line-marker',
-  //       },
-  //       {
-  //         marker: '### ',
-  //         short: <b>H3 #</b>,
-  //         type: 'line-marker',
-  //       },
-  //     ],
-  //     type: 'group',
-  //   },
-  // ];
+  let { markers } = props;
+  if (!markers) {
+    markers = [
+      {
+        key: 'header',
+        markers: [
+          {
+            key: 'header',
+            markers: [
+              {
+                key: 'h1',
+                long: <b>Header1</b>,
+                marker: '# ',
+                short: <b>H1</b>,
+                type: 'line-marker',
+              },
+              {
+                key: 'h2',
+                long: <b>Header2</b>,
+                marker: '## ',
+                short: <b>H2 #</b>,
+                type: 'line-marker',
+              },
+              {
+                key: 'h3',
+                long: <b>Header3</b>,
+                marker: '### ',
+                short: <b>H3 #</b>,
+                type: 'line-marker',
+              },
+              {
+                key: 'h4',
+                long: <b>Header4</b>,
+                marker: '#### ',
+                short: <b>H4 #</b>,
+                type: 'line-marker',
+              },
+            ],
+            type: 'dropdown',
+          },
+        ],
+        type: 'group',
+      },
+      {
+        key: 'text',
+        markers: [
+          {
+            key: 'text',
+            markers: [
+              {
+                defaultText: 'bold',
+                key: 'bold',
+                long: <b>{languages[language].bold}</b>,
+                prefix: '**',
+                suffix: '**',
+                type: 'marker',
+              },
+              {
+                defaultText: 'italic',
+                key: 'italic',
+                long: <i>${languages[language].italic}</i>,
+                prefix: '*',
+                suffix: '*',
+                type: 'marker',
+              },
+              {
+                defaultText: 'strikethrough',
+                key: 'strikethrough',
+                long: <del>{languages[language].strikethrough}</del>,
+                prefix: '~~',
+                suffix: '~~',
+                type: 'marker',
+              },
+              {
+                key: 'blockquote',
+                long: languages[language].blockquote,
+                marker: '> ',
+                type: 'line-marker',
+              },
+              {
+                defaultText: 'inline code',
+                key: 'inline-code',
+                long: languages[language].inlineCode,
+                prefix: '`',
+                suffix: '`',
+                type: 'marker',
+              },
+              {
+                defaultText: 'code',
+                key: 'code',
+                long: languages[language].inlineCode,
+                multipleLine: true,
+                prefix: '```',
+                suffix: '```',
+                type: 'marker',
+              },
+            ],
+            type: 'dropdown',
+          },
+        ],
+        type: 'group',
+      },
+      {
+        key: 'list',
+        markers: [
+          {
+            key: 'unordered-list',
+            long: <img alt="" src={unorderedListIcon} />,
+            marker: '* ',
+            type: 'line-marker',
+          },
+          {
+            key: 'ordered-list',
+            long: <img alt="" src={orderedListIcon} />,
+            marker: '1. ',
+            type: 'line-marker',
+          },
+        ],
+        type: 'group',
+      },
+      {
+        key: 'additional',
+        markers: [
+          {
+            defaultText: 'text',
+            key: 'link',
+            long: <img alt="" src={linkIcon} />,
+            prefix: '[',
+            suffix: '](url)',
+            type: 'marker',
+          },
+        ],
+        type: 'group',
+      },
+    ];
+  }
   return (
     <div className="tme-menu">
       {isEditing && (
         <>
-          <ul className="tme-menu-group left">
-            <EditorMenuDropdown title={languages[language].headers} text={<b>H1</b>}>
-              <ul>
-                <EditorLineMarker marker="# ">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      <b>H1 #</b>
-                    </li>
-                  )}
-                </EditorLineMarker>
-                <EditorLineMarker marker="## ">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      <b>H2 ##</b>
-                    </li>
-                  )}
-                </EditorLineMarker>
-                <EditorLineMarker marker="### ">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      <b>H3 ###</b>
-                    </li>
-                  )}
-                </EditorLineMarker>
-                <EditorLineMarker marker="#### ">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      <b>H4 ####</b>
-                    </li>
-                  )}
-                </EditorLineMarker>
-              </ul>
-            </EditorMenuDropdown>
-          </ul>
-          <ul className="tme-menu-group left">
-            <EditorMenuDropdown title={languages[language].text} text={<img alt="" src={textIcon} />}>
-              <ul>
-                <EditorMarker prefix="**" suffix="**" defaultText="bold">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      <b>{languages[language].bold}</b>
-                    </li>
-                  )}
-                </EditorMarker>
-                <EditorMarker prefix="*" suffix="*" defaultText="italic">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      <i>{languages[language].italic}</i>
-                    </li>
-                  )}
-                </EditorMarker>
-                <EditorMarker prefix="~~" suffix="~~" defaultText="default">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      <del>{languages[language].strikethrough}</del>
-                    </li>
-                  )}
-                </EditorMarker>
-                <EditorLineMarker marker="> ">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      {languages[language].blockquote}
-                    </li>
-                  )}
-                </EditorLineMarker>
-                <EditorMarker prefix="`" suffix="`" defaultText="code">
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      {languages[language].inlineCode}
-                    </li>
-                  )}
-                </EditorMarker>
-                <EditorMarker prefix="```" suffix="```" defaultText="code" multipleLine>
-                  {mark => (
-                    <li className="tme-menu-item" onClick={mark}>
-                      {languages[language].code}
-                    </li>
-                  )}
-                </EditorMarker>
-              </ul>
-            </EditorMenuDropdown>
-          </ul>
-          <ul className="tme-menu-group left">
-            <EditorLineMarker marker="* ">
-              {mark => (
-                <li title={languages[language].unorderedList} className="tme-menu-item" onClick={mark}>
-                  <span className="tme-menu-item-inner">
-                    <img alt="" src={unorderedListIcon} />
-                  </span>
-                </li>
-              )}
-            </EditorLineMarker>
-            <EditorLineMarker marker="1. ">
-              {mark => (
-                <li title={languages[language].orderedList} className="tme-menu-item" onClick={mark}>
-                  <span className="tme-menu-item-inner">
-                    <img alt="" src={orderedListIcon} />
-                  </span>
-                </li>
-              )}
-            </EditorLineMarker>
-          </ul>
-          <ul className="tme-menu-group left">
-            <EditorMarker prefix="[" suffix="](url)" defaultText="text">
-              {mark => (
-                <li title={languages[language].link} className="tme-menu-item" onClick={mark}>
-                  <span className="tme-menu-item-inner">
-                    <img alt="" src={linkIcon} />
-                  </span>
-                </li>
-              )}
-            </EditorMarker>
-          </ul>
+          {markers.map(group => (
+            <ul key={group.key} className="tme-menu-group left">
+              {group.markers.map(marker => {
+                switch (marker.type) {
+                  case 'line-marker':
+                    return (
+                      <EditorLineMarker key={marker.key} marker={marker.marker}>
+                        {mark => (
+                          <li className="tme-menu-item" onClick={mark}>
+                            <span className="tme-menu-item-inner">{marker.short || marker.long}</span>
+                          </li>
+                        )}
+                      </EditorLineMarker>
+                    );
+                  case 'marker':
+                    return (
+                      <EditorMarker
+                        key={marker.key}
+                        prefix={marker.prefix}
+                        suffix={marker.suffix}
+                        defaultText={marker.defaultText}
+                      >
+                        {mark => (
+                          <li className="tme-menu-item" onClick={mark}>
+                            <span className="tme-menu-item-inner">{marker.short || marker.long}</span>
+                          </li>
+                        )}
+                      </EditorMarker>
+                    );
+                  case 'dropdown':
+                    return <EditorMenuDropdown key={marker.key} config={marker} />;
+                }
+                return;
+              })}
+            </ul>
+          ))}
         </>
       )}
       <ul className="tme-menu-group right">

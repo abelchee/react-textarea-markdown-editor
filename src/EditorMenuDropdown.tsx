@@ -6,12 +6,13 @@ import useClickAway from 'react-use/lib/useClickAway';
 import EditorContext from './EditorContext';
 // @ts-ignore
 import arrowIcon from './icon/arrow.svg';
+import { IDropdown } from './type';
+import EditorLineMarker from './EditorLineMarker';
+import EditorMarker from './EditorMarker';
 
 export interface IEditorMenuDropdownProps {
   className?: string | undefined;
-  title?: string | undefined;
-  text: React.ReactElement | string;
-  children: React.ReactElement;
+  config: IDropdown;
 }
 
 const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = props => {
@@ -21,9 +22,10 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
   useClickAway(ref, () => {
     toggleShow(false);
   });
+  const { config } = props;
   return (
-    <li title={props.title} ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)}>
-      <span className="tme-menu-item-inner">{props.text}</span>
+    <li ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)}>
+      <span className="tme-menu-item-inner">{config.markers[0].short || config.markers[0].long}</span>
       <span
         className="tme-dropdown-arrow"
         onClick={() => {
@@ -40,7 +42,37 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
           show,
         })}
       >
-        {props.children}
+        <ul>
+          {config.markers.map(marker => {
+            switch (marker.type) {
+              case 'line-marker':
+                return (
+                  <EditorLineMarker key={marker.key} marker={marker.marker}>
+                    {mark => (
+                      <li className="tme-menu-item" onClick={mark}>
+                        {marker.short || marker.long}
+                      </li>
+                    )}
+                  </EditorLineMarker>
+                );
+              case 'marker':
+                return (
+                  <EditorMarker
+                    key={marker.key}
+                    prefix={marker.prefix}
+                    suffix={marker.suffix}
+                    defaultText={marker.defaultText}
+                  >
+                    {mark => (
+                      <li className="tme-menu-item" onClick={mark}>
+                        {marker.short || marker.long}
+                      </li>
+                    )}
+                  </EditorMarker>
+                );
+            }
+          })}
+        </ul>
       </div>
     </li>
   );
