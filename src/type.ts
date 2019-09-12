@@ -6,7 +6,7 @@ export interface IMarker {
   prefix: string;
   suffix: string;
   multipleLine?: boolean;
-  long?: string | React.ReactElement;
+  name?: string | React.ReactElement;
   defaultText?: string;
 }
 
@@ -14,7 +14,7 @@ export interface ILineMarker {
   key: string;
   type: 'line-marker';
   marker: string;
-  long?: string | React.ReactElement;
+  name?: string | React.ReactElement;
 }
 
 export interface IDropdown {
