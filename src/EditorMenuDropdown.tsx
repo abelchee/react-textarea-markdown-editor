@@ -53,32 +53,18 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
         })}
       >
         <ul>
-          {config.markers.map((marker, i) => {
-            let cmp: React.ReactElement | undefined;
-            switch (marker.type) {
-              case 'line-marker':
-                cmp = <EditorLineMarker config={marker} />;
-                break;
-              case 'marker':
-                cmp = <EditorMarker config={marker} />;
-                break;
-              default:
-                cmp = undefined;
-                break;
-            }
-            return (
-              <li
-                className="tme-menu-item tme-dropdown-item"
-                key={marker.key}
-                onClick={() => {
-                  setIndex(i);
-                  setShow(false);
-                }}
-              >
-                {cmp}
-              </li>
-            );
-          })}
+          {config.markers.map((marker, i) => (
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              key={marker.key}
+              onClick={() => {
+                setIndex(i);
+                setShow(false);
+              }}
+            >
+              {marker.type === 'line-marker' ? <EditorLineMarker config={marker} /> : <EditorMarker config={marker} />}
+            </li>
+          ))}
         </ul>
       </div>
     </li>
