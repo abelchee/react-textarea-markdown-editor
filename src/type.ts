@@ -14,7 +14,7 @@ export interface IMarker {
 export interface ITemplateMarker {
   key: string;
   type: 'template';
-  template: string,
+  template: string;
   multipleLine?: boolean;
   name?: string | React.ReactElement;
   title?: string;
