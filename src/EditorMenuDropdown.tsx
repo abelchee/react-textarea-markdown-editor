@@ -5,6 +5,7 @@ import useClickAway from 'react-use/lib/useClickAway';
 import EditorContext from './EditorContext';
 import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
+import EditorTemplateMarker from './EditorTemplateMarker';
 // @ts-ignore
 import arrowIcon from './icon/arrow.svg';
 import { IDropdown } from './type';
@@ -63,7 +64,13 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
               }}
               title={marker.title}
             >
-              {marker.type === 'line-marker' ? <EditorLineMarker config={marker} /> : <EditorMarker config={marker} />}
+              {marker.type === 'line-marker' ? (
+                <EditorLineMarker config={marker} />
+              ) : marker.type === 'marker' ? (
+                <EditorMarker config={marker} />
+              ) : (
+                <EditorTemplateMarker config={marker} />
+              )}
             </li>
           ))}
         </ul>

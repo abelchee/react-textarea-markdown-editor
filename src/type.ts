@@ -11,6 +11,15 @@ export interface IMarker {
   title?: string;
 }
 
+export interface ITemplateMarker {
+  key: string;
+  type: 'template';
+  template: string,
+  multipleLine?: boolean;
+  name?: string | React.ReactElement;
+  title?: string;
+}
+
 export interface ILineMarker {
   key: string;
   type: 'line-marker';
@@ -22,11 +31,11 @@ export interface ILineMarker {
 export interface IDropdown {
   key: string;
   type: 'dropdown';
-  markers: Array<IMarker | ILineMarker>;
+  markers: Array<IMarker | ILineMarker | ITemplateMarker>;
 }
 
 export interface IMarkerGroup {
   type: 'group';
   key: string;
-  markers: Array<IMarker | ILineMarker | IDropdown>;
+  markers: Array<IMarker | ILineMarker | ITemplateMarker | IDropdown>;
 }

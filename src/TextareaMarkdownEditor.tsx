@@ -38,15 +38,18 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
   const [lineMarkers, setLineMarkers] = useState<string[]>([]);
   const [edit, setEdit] = useState(!readOnly);
   const [value, setValue] = useState(props.value || props.defaultValue);
+
   function toggleEdit() {
     setEdit(!edit);
   }
+
   function onChange(textarea: HTMLTextAreaElement) {
     setValue(textarea.value);
     if (props.onChange) {
       props.onChange(textarea);
     }
   }
+
   return (
     <div className={classNames('tme-container', props.className)}>
       <EditContext.Provider
@@ -68,6 +71,13 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
             const index = lineMarkers.indexOf(marker);
             if (index < 0) {
               setLineMarkers([...lineMarkers, marker]);
+            }
+          },
+          template: (template: string, multipleLine: boolean) => {
+            if (multipleLine) {
+              textareaRef.current!.toggleMultipleLineTemplate(template);
+            } else {
+              textareaRef.current!.toggleTemplate(template);
             }
           },
         }}

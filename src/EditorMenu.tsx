@@ -10,9 +10,12 @@ import orderedListIcon from './icon/ordered-list.svg';
 import textIcon from './icon/text.svg';
 // @ts-ignore
 import unorderedListIcon from './icon/unordered-list.svg';
+// @ts-ignore
+import tableIcon from './icon/table.svg';
 
 import languages from './lang.json';
 import { IMarkerGroup } from './type';
+import EditorTemplateMarker from './EditorTemplateMarker';
 
 export interface IEditorMenuProps {
   isEditing?: boolean;
@@ -149,6 +152,18 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             title: languages[language].orderedList,
             type: 'line-marker',
           },
+          {
+            key: 'table',
+            multipleLine: true,
+            name: <img alt="" src={tableIcon} />,
+            template: `| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |`,
+            title: languages[language].table,
+            type: 'template',
+          },
         ],
         type: 'group',
       },
@@ -187,6 +202,12 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                     return (
                       <li className="tme-menu-item" key={marker.key} title={marker.title}>
                         <EditorMarker config={marker} />
+                      </li>
+                    );
+                  case 'template':
+                    return (
+                      <li className="tme-menu-item" key={marker.key} title={marker.title}>
+                        <EditorTemplateMarker config={marker} />
                       </li>
                     );
                   case 'dropdown':
