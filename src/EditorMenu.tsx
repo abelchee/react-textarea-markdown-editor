@@ -7,15 +7,18 @@ import linkIcon from './icon/link.svg';
 // @ts-ignore
 import orderedListIcon from './icon/ordered-list.svg';
 // @ts-ignore
+import tableIcon from './icon/table.svg';
+// @ts-ignore
 import textIcon from './icon/text.svg';
 // @ts-ignore
 import unorderedListIcon from './icon/unordered-list.svg';
-// @ts-ignore
-import tableIcon from './icon/table.svg';
 
+// @ts-ignore
+import youtubeIcon from './icon/youtube.svg';
+
+import EditorTemplateMarker from './EditorTemplateMarker';
 import languages from './lang.json';
 import { IMarkerGroup } from './type';
-import EditorTemplateMarker from './EditorTemplateMarker';
 
 export interface IEditorMenuProps {
   isEditing?: boolean;
@@ -129,6 +132,14 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 title: languages[language].code,
                 type: 'marker',
               },
+              {
+                key: 'hr',
+                multipleLine: true,
+                name: <hr style={{ width: '100%' }} />,
+                template: '---',
+                title: languages[language].hr,
+                type: 'template',
+              },
             ],
             type: 'dropdown',
           },
@@ -178,6 +189,13 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             suffix: '](url)',
             title: languages[language].link,
             type: 'marker',
+          },
+          {
+            key: 'youtube',
+            name: <img alt="" src={youtubeIcon} />,
+            template: `[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YMmdQw17TU4/0.jpg)](http://www.youtube.com/watch?v=YMmdQw17TU4)`,
+            title: languages[language].youtube,
+            type: 'template',
           },
         ],
         type: 'group',

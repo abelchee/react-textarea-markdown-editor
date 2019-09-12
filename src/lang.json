@@ -16,7 +16,9 @@
     "strikethrough": "Strikethrough",
     "blockquote": "Blockquote",
     "inlineCode": "Inline code",
-    "code": "Code"
+    "code": "Code",
+    "hr": "<hr />",
+    "youtube": "Youtube"
   },
   "zh": {
     "header1": "<h1></h1>",
@@ -35,6 +37,8 @@
     "strikethrough": "划线",
     "blockquote": "引用",
     "inlineCode": "内置代码",
-    "code": "代码"
+    "code": "代码",
+    "hr": "<hr />",
+    "youtube": "Youtube"
   }
 }
