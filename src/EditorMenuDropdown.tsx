@@ -4,11 +4,11 @@ import { useContext, useState } from 'react';
 import { useRef } from 'react';
 import useClickAway from 'react-use/lib/useClickAway';
 import EditorContext from './EditorContext';
+import EditorLineMarker from './EditorLineMarker';
+import EditorMarker from './EditorMarker';
 // @ts-ignore
 import arrowIcon from './icon/arrow.svg';
 import { IDropdown } from './type';
-import EditorLineMarker from './EditorLineMarker';
-import EditorMarker from './EditorMarker';
 
 export interface IEditorMenuDropdownProps {
   className?: string | undefined;
@@ -16,16 +16,47 @@ export interface IEditorMenuDropdownProps {
 }
 
 const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = props => {
+  const { config } = props;
   const [show, toggleShow] = useState(false);
+  const [currentMarker, setCurrentMarker] = useState(config.markers[0]);
   const { focus } = useContext(EditorContext);
   const ref = useRef(null);
   useClickAway(ref, () => {
     toggleShow(false);
   });
-  const { config } = props;
+  let dropdownTrigger;
+  switch (currentMarker.type) {
+    case 'line-marker':
+      dropdownTrigger = (
+        <EditorLineMarker key={currentMarker.key} marker={currentMarker.marker}>
+          {mark => (
+            <span className="tme-menu-item-inner tme-dropdown-trigger" onClick={mark}>
+              {currentMarker.short || currentMarker.long}
+            </span>
+          )}
+        </EditorLineMarker>
+      );
+      break;
+    case 'marker':
+      dropdownTrigger = (
+        <EditorMarker
+          key={currentMarker.key}
+          prefix={currentMarker.prefix}
+          suffix={currentMarker.suffix}
+          defaultText={currentMarker.defaultText}
+        >
+          {mark => (
+            <span className="tme-menu-item-inner tme-dropdown-trigger" onClick={mark}>
+              {currentMarker.short || currentMarker.long}
+            </span>
+          )}
+        </EditorMarker>
+      );
+      break;
+  }
   return (
     <li ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)}>
-      <span className="tme-menu-item-inner">{config.markers[0].short || config.markers[0].long}</span>
+      {dropdownTrigger}
       <span
         className="tme-dropdown-arrow"
         onClick={() => {
@@ -49,7 +80,14 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                 return (
                   <EditorLineMarker key={marker.key} marker={marker.marker}>
                     {mark => (
-                      <li className="tme-menu-item" onClick={mark}>
+                      <li
+                        className="tme-menu-item"
+                        onClick={() => {
+                          toggleShow(!show);
+                          mark();
+                          setCurrentMarker(marker);
+                        }}
+                      >
                         {marker.short || marker.long}
                       </li>
                     )}
@@ -64,7 +102,14 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                     defaultText={marker.defaultText}
                   >
                     {mark => (
-                      <li className="tme-menu-item" onClick={mark}>
+                      <li
+                        className="tme-menu-item"
+                        onClick={() => {
+                          toggleShow(!show);
+                          mark();
+                          setCurrentMarker(marker);
+                        }}
+                      >
                         {marker.short || marker.long}
                       </li>
                     )}
