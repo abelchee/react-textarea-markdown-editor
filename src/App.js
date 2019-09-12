@@ -198,6 +198,9 @@ function App () {
       <button type="button" onClick={() => setLang('zh')}>简体中文</button>
       <br/>
       <br/>
+
+      <TextareaMarkdownEditor language={language} id="2222" rows={10}/>
+      <hr/>
       <TextareaMarkdownEditor markers={markers} language={language} id="111111" rows={10}
                               doParse={text => md.render(text)}/>
     </div>
