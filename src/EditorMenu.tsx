@@ -35,30 +35,26 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             markers: [
               {
                 key: 'h1',
-                long: <b>Header1</b>,
+                long: <b>H1</b>,
                 marker: '# ',
-                short: <b>H1</b>,
                 type: 'line-marker',
               },
               {
                 key: 'h2',
-                long: <b>Header2</b>,
+                long: <b>H2</b>,
                 marker: '## ',
-                short: <b>H2</b>,
                 type: 'line-marker',
               },
               {
                 key: 'h3',
-                long: <b>Header3</b>,
+                long: <b>H3</b>,
                 marker: '### ',
-                short: <b>H3</b>,
                 type: 'line-marker',
               },
               {
                 key: 'h4',
-                long: <b>Header4</b>,
+                long: <b>H4</b>,
                 marker: '#### ',
-                short: <b>H4</b>,
                 type: 'line-marker',
               },
             ],
@@ -84,7 +80,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
               {
                 defaultText: 'italic',
                 key: 'italic',
-                long: <i>${languages[language].italic}</i>,
+                long: <i>{languages[language].italic}</i>,
                 prefix: '*',
                 suffix: '*',
                 type: 'marker',
@@ -173,7 +169,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                       <EditorLineMarker key={marker.key} marker={marker.marker}>
                         {mark => (
                           <li className="tme-menu-item" onClick={mark}>
-                            <span className="tme-menu-item-inner">{marker.short || marker.long}</span>
+                            <span className="tme-menu-item-inner">{marker.long}</span>
                           </li>
                         )}
                       </EditorLineMarker>
@@ -189,7 +185,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                       >
                         {mark => (
                           <li className="tme-menu-item" onClick={mark}>
-                            <span className="tme-menu-item-inner">{marker.short || marker.long}</span>
+                            <span className="tme-menu-item-inner">{marker.long}</span>
                           </li>
                         )}
                       </EditorMarker>

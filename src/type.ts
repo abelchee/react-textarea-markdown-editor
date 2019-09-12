@@ -1,11 +1,12 @@
+import * as React from 'react';
+
 export interface IMarker {
   key: string;
   type: 'marker';
   prefix: string;
   suffix: string;
   multipleLine?: boolean;
-  short?: any;
-  long?: any;
+  long?: string | React.ReactElement;
   defaultText?: string;
 }
 
@@ -13,8 +14,7 @@ export interface ILineMarker {
   key: string;
   type: 'line-marker';
   marker: string;
-  long?: any;
-  short?: any;
+  long?: string | React.ReactElement;
 }
 
 export interface IDropdown {

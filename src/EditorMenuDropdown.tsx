@@ -31,7 +31,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
         <EditorLineMarker key={currentMarker.key} marker={currentMarker.marker}>
           {mark => (
             <span className="tme-menu-item-inner tme-dropdown-trigger" onClick={mark}>
-              {currentMarker.short || currentMarker.long}
+              {currentMarker.long}
             </span>
           )}
         </EditorLineMarker>
@@ -48,7 +48,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
         >
           {mark => (
             <span className="tme-menu-item-inner tme-dropdown-trigger" onClick={mark}>
-              {currentMarker.short || currentMarker.long}
+              {currentMarker.long}
             </span>
           )}
         </EditorMarker>
@@ -89,7 +89,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                           setCurrentMarker(marker);
                         }}
                       >
-                        {marker.long || marker.short}
+                        {marker.long}
                       </li>
                     )}
                   </EditorLineMarker>
@@ -112,7 +112,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
                           setCurrentMarker(marker);
                         }}
                       >
-                        {marker.long || marker.short}
+                        {marker.long}
                       </li>
                     )}
                   </EditorMarker>
