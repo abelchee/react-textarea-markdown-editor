@@ -1,5 +1,4 @@
 import * as React from 'react';
-import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
 import EditorMenuDropdown from './EditorMenuDropdown';
 // @ts-ignore
@@ -8,8 +7,6 @@ import linkIcon from './icon/link.svg';
 import orderedListIcon from './icon/ordered-list.svg';
 // @ts-ignore
 import unorderedListIcon from './icon/unordered-list.svg';
-
-import EditorTemplateMarker from './EditorTemplateMarker';
 import languages from './lang.json';
 import { IMarkerGroup } from './type';
 
@@ -173,13 +170,7 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
                 case 'template':
                   return (
                     <li className="tme-menu-item" key={marker.key} title={marker.title}>
-                      {marker.type === 'line-marker' ? (
-                        <EditorLineMarker config={marker} />
-                      ) : marker.type === 'marker' ? (
-                        <EditorMarker config={marker} />
-                      ) : (
-                        <EditorTemplateMarker config={marker} />
-                      )}
+                      <EditorMarker config={marker} />
                     </li>
                   );
                 case 'dropdown':

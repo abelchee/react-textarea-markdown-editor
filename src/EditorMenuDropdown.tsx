@@ -3,9 +3,7 @@ import * as React from 'react';
 import { useContext, useRef, useState } from 'react';
 import useClickAway from 'react-use/lib/useClickAway';
 import EditorContext from './EditorContext';
-import EditorLineMarker from './EditorLineMarker';
 import EditorMarker from './EditorMarker';
-import EditorTemplateMarker from './EditorTemplateMarker';
 // @ts-ignore
 import arrowIcon from './icon/arrow.svg';
 import { IDropdown } from './type';
@@ -27,13 +25,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
   const currentMarker = config.markers[index];
   return (
     <li ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)} title={currentMarker.title}>
-      {currentMarker.type === 'line-marker' ? (
-        <EditorLineMarker config={currentMarker} />
-      ) : currentMarker.type === 'marker' ? (
-        <EditorMarker config={currentMarker} />
-      ) : (
-        <EditorTemplateMarker config={currentMarker} />
-      )}
+      <EditorMarker config={currentMarker} />
       <span
         className="tme-dropdown-arrow"
         onClick={() => {
@@ -61,13 +53,7 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
               }}
               title={marker.title}
             >
-              {marker.type === 'line-marker' ? (
-                <EditorLineMarker config={marker} />
-              ) : marker.type === 'marker' ? (
-                <EditorMarker config={marker} />
-              ) : (
-                <EditorTemplateMarker config={marker} />
-              )}
+              <EditorMarker config={marker} />
             </li>
           ))}
         </ul>
