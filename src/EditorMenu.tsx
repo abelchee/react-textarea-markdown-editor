@@ -170,21 +170,17 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
               {group.markers.map(marker => {
                 switch (marker.type) {
                   case 'line-marker':
-                    return (
-                      <li className="tme-menu-item" key={marker.key} title={marker.title}>
-                        <EditorLineMarker config={marker} />
-                      </li>
-                    );
                   case 'marker':
-                    return (
-                      <li className="tme-menu-item" key={marker.key} title={marker.title}>
-                        <EditorMarker config={marker} />
-                      </li>
-                    );
                   case 'template':
                     return (
                       <li className="tme-menu-item" key={marker.key} title={marker.title}>
-                        <EditorTemplateMarker config={marker} />
+                        {marker.type === 'line-marker' ? (
+                          <EditorLineMarker config={marker} />
+                        ) : marker.type === 'marker' ? (
+                          <EditorMarker config={marker} />
+                        ) : (
+                          <EditorTemplateMarker config={marker} />
+                        )}
                       </li>
                     );
                   case 'dropdown':
