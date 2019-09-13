@@ -163,35 +163,32 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
   }
   return (
     <div className="tme-menu">
-      {isEditing && (
-        <>
-          {markers.map(group => (
-            <ul key={group.key} className="tme-menu-group left">
-              {group.markers.map(marker => {
-                switch (marker.type) {
-                  case 'line-marker':
-                  case 'marker':
-                  case 'template':
-                    return (
-                      <li className="tme-menu-item" key={marker.key} title={marker.title}>
-                        {marker.type === 'line-marker' ? (
-                          <EditorLineMarker config={marker} />
-                        ) : marker.type === 'marker' ? (
-                          <EditorMarker config={marker} />
-                        ) : (
-                          <EditorTemplateMarker config={marker} />
-                        )}
-                      </li>
-                    );
-                  case 'dropdown':
-                    return <EditorMenuDropdown key={marker.key} config={marker} />;
-                }
-                return;
-              })}
-            </ul>
-          ))}
-        </>
-      )}
+      {isEditing &&
+        markers.map(group => (
+          <ul key={group.key} className="tme-menu-group left">
+            {group.markers.map(marker => {
+              switch (marker.type) {
+                case 'line-marker':
+                case 'marker':
+                case 'template':
+                  return (
+                    <li className="tme-menu-item" key={marker.key} title={marker.title}>
+                      {marker.type === 'line-marker' ? (
+                        <EditorLineMarker config={marker} />
+                      ) : marker.type === 'marker' ? (
+                        <EditorMarker config={marker} />
+                      ) : (
+                        <EditorTemplateMarker config={marker} />
+                      )}
+                    </li>
+                  );
+                case 'dropdown':
+                  return <EditorMenuDropdown key={marker.key} config={marker} />;
+              }
+              return;
+            })}
+          </ul>
+        ))}
       <ul className="tme-menu-group right">
         <li className="tme-menu-item tme-link">
           <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">
