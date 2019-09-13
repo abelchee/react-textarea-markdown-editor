@@ -7,18 +7,18 @@ import EditorMenu from './EditorMenu';
 import { IMarkerGroup } from './type';
 
 export interface ITextareaMarkdownEditor {
-  id?: string | undefined;
-  textareaId?: string | undefined;
-  className?: string | undefined;
-  style?: object | undefined;
+  id?: string;
+  textareaId?: string;
+  className?: string;
+  style?: object;
   rows?: number;
-  defaultValue?: string | undefined;
-  value?: string | undefined;
+  defaultValue?: string;
+  value?: string;
   autoFocus?: boolean;
   readOnly?: boolean;
-  onChange?: (textarea: HTMLTextAreaElement) => {} | undefined;
-  onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
-  onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
+  onChange?: (textarea: HTMLTextAreaElement) => {};
+  onKeyDown?: (event: React.KeyboardEvent) => {};
+  onKeyPress?: (event: React.KeyboardEvent) => {};
   doParse: (text: string) => string;
   language?: string;
   markers?: IMarkerGroup[];
@@ -43,7 +43,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
   }
 
   return (
-    <div className={classNames('tme-container', props.className)}>
+    <div id={props.id} className={classNames('tme-container', props.className)}>
       <EditContext.Provider
         value={{
           focus: () => {

@@ -3,7 +3,6 @@
     "header1": "<h1></h1>",
     "header2": "<h2></h2>",
     "header3": "<h3></h3>",
-    "header4": "<h4></h4>",
     "orderedList": "Ordered List",
     "unorderedList": "Unordered List",
     "link": "Link",
@@ -14,14 +13,12 @@
     "strikethrough": "Strikethrough",
     "blockquote": "Blockquote",
     "inlineCode": "Inline code",
-    "code": "Code",
-    "hr": "<hr />"
+    "code": "Code"
   },
   "zh": {
     "header1": "<h1></h1>",
     "header2": "<h2></h2>",
     "header3": "<h3></h3>",
-    "header4": "<h4></h4>",
     "orderedList": "有序列表",
     "unorderedList": "无序列表",
     "link": "链接",
@@ -32,7 +29,6 @@
     "strikethrough": "划线",
     "blockquote": "引用",
     "inlineCode": "内置代码",
-    "code": "代码",
-    "hr": "<hr />"
+    "code": "代码"
   }
 }

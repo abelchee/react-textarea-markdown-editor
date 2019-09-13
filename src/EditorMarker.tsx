@@ -7,7 +7,6 @@ import { IMarker } from './type';
 export interface IEditorMarkerProps {
   config: IMarker;
   className?: string;
-  onClick?: () => void;
   removeInnerClass?: boolean;
 }
 
@@ -16,12 +15,7 @@ const EditorMarker: React.FunctionComponent<IEditorMarkerProps> = props => {
   const { config } = props;
   return (
     <span
-      onClick={() => {
-        mark!(config.prefix, config.suffix, config.defaultText || '', config.multipleLine || false);
-        if (props.onClick) {
-          props.onClick();
-        }
-      }}
+      onClick={() => mark!(config.prefix, config.suffix, config.defaultText || '', config.multipleLine || false)}
       className={classNames({ 'tme-menu-item-inner': !props.removeInnerClass }, props.className)}
     >
       {config.name}

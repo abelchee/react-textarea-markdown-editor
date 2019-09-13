@@ -7,7 +7,6 @@ import { ITemplateMarker } from './type';
 export interface IEditorTemplateMarkerProps {
   config: ITemplateMarker;
   className?: string;
-  onClick?: () => void;
   removeInnerClass?: boolean;
 }
 
@@ -16,12 +15,7 @@ const EditorTemplateMarker: React.FunctionComponent<IEditorTemplateMarkerProps> 
   const { config } = props;
   return (
     <span
-      onClick={() => {
-        template!(config.template, config.multipleLine || false);
-        if (props.onClick) {
-          props.onClick();
-        }
-      }}
+      onClick={() => template!(config.template, config.multipleLine || false)}
       className={classNames({ 'tme-menu-item-inner': !props.removeInnerClass }, props.className)}
     >
       {config.name}
