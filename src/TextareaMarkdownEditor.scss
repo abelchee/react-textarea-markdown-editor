@@ -40,6 +40,7 @@ $tme-arrow-size: 5px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    flex-wrap: wrap;
 
     ul.tme-menu-group {
       border-radius: 2px;
