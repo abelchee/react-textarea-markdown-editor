@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import Markdown from 'markdown-it';
 import * as React from 'react';
 import { useRef, useState } from 'react';
 import EnhancedTextarea from 'react-enhanced-textarea';
@@ -7,16 +6,7 @@ import EditContext from './EditorContext';
 import EditorMenu from './EditorMenu';
 import { IMarkerGroup } from './type';
 
-const md = new Markdown({
-  xhtmlOut: true,
-});
-
-function doParse(text: string) {
-  return md.render(text);
-}
-
 export interface ITextareaMarkdownEditor {
-  children?: React.ReactNode | undefined;
   id?: string | undefined;
   textareaId?: string | undefined;
   className?: string | undefined;
@@ -29,7 +19,7 @@ export interface ITextareaMarkdownEditor {
   onChange?: (textarea: HTMLTextAreaElement) => {} | undefined;
   onKeyDown?: (event: React.KeyboardEvent) => {} | undefined;
   onKeyPress?: (event: React.KeyboardEvent) => {} | undefined;
-  doParse?: (text: string) => string;
+  doParse: (text: string) => string;
   language?: string;
   markers?: IMarkerGroup[];
 }
@@ -84,40 +74,34 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
           },
         }}
       >
-        {props.children ? (
-          props.children
+        <EditorMenu
+          markers={props.markers}
+          readOnly={readOnly}
+          language={props.language!}
+          isEditing={edit}
+          toggleEdit={toggleEdit}
+        />
+        {edit ? (
+          <EnhancedTextarea
+            id={props.textareaId}
+            className="tme-textarea"
+            ref={textareaRef}
+            rows={props.rows}
+            autoFocus={props.autoFocus}
+            defaultValue={props.defaultValue}
+            value={value}
+            onChange={onChange}
+            onKeyDown={props.onKeyDown}
+            onKeyPress={props.onKeyPress}
+            lineMarkers={lineMarkers}
+          />
         ) : (
-          <>
-            <EditorMenu
-              markers={props.markers}
-              readOnly={readOnly}
-              language={props.language!}
-              isEditing={edit}
-              toggleEdit={toggleEdit}
-            />
-            {edit ? (
-              <EnhancedTextarea
-                id={props.textareaId}
-                className="tme-textarea"
-                ref={textareaRef}
-                rows={props.rows}
-                autoFocus={props.autoFocus}
-                defaultValue={props.defaultValue}
-                value={value}
-                onChange={onChange}
-                onKeyDown={props.onKeyDown}
-                onKeyPress={props.onKeyPress}
-                lineMarkers={lineMarkers}
-              />
-            ) : (
-              <div
-                className="tme-viewer"
-                dangerouslySetInnerHTML={{
-                  __html: textareaRef.current ? (props.doParse || doParse)(textareaRef.current.value) : '',
-                }}
-              />
-            )}
-          </>
+          <div
+            className="tme-viewer"
+            dangerouslySetInnerHTML={{
+              __html: textareaRef.current ? props.doParse(textareaRef.current.value) : '',
+            }}
+          />
         )}
       </EditContext.Provider>
     </div>
