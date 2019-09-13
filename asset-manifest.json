@@ -1,20 +1,15 @@
 {
   "files": {
-    "main.css": "/react-textarea-markdown-editor/static/css/main.93c1f60b.chunk.css",
-    "main.js": "/react-textarea-markdown-editor/static/js/main.febc1acf.chunk.js",
-    "main.js.map": "/react-textarea-markdown-editor/static/js/main.febc1acf.chunk.js.map",
+    "main.css": "/react-textarea-markdown-editor/static/css/main.9155dc6e.chunk.css",
+    "main.js": "/react-textarea-markdown-editor/static/js/main.e65eae55.chunk.js",
+    "main.js.map": "/react-textarea-markdown-editor/static/js/main.e65eae55.chunk.js.map",
     "runtime~main.js": "/react-textarea-markdown-editor/static/js/runtime~main.8791f1b5.js",
     "runtime~main.js.map": "/react-textarea-markdown-editor/static/js/runtime~main.8791f1b5.js.map",
-    "static/js/2.408f85cd.chunk.js": "/react-textarea-markdown-editor/static/js/2.408f85cd.chunk.js",
-    "static/js/2.408f85cd.chunk.js.map": "/react-textarea-markdown-editor/static/js/2.408f85cd.chunk.js.map",
+    "static/js/2.80a59b19.chunk.js": "/react-textarea-markdown-editor/static/js/2.80a59b19.chunk.js",
+    "static/js/2.80a59b19.chunk.js.map": "/react-textarea-markdown-editor/static/js/2.80a59b19.chunk.js.map",
     "index.html": "/react-textarea-markdown-editor/index.html",
-    "precache-manifest.e0550e1f9e6f10d24bfc078d91ae59bf.js": "/react-textarea-markdown-editor/precache-manifest.e0550e1f9e6f10d24bfc078d91ae59bf.js",
+    "precache-manifest.f723fdaf6c919ab89499fc79b33cff94.js": "/react-textarea-markdown-editor/precache-manifest.f723fdaf6c919ab89499fc79b33cff94.js",
     "service-worker.js": "/react-textarea-markdown-editor/service-worker.js",
-    "static/css/main.93c1f60b.chunk.css.map": "/react-textarea-markdown-editor/static/css/main.93c1f60b.chunk.css.map",
-    "static/media/link.svg": "/react-textarea-markdown-editor/static/media/link.4b7cfc01.svg",
-    "static/media/ordered-list.svg": "/react-textarea-markdown-editor/static/media/ordered-list.84ff2b73.svg",
-    "static/media/table.svg": "/react-textarea-markdown-editor/static/media/table.d645e842.svg",
-    "static/media/unordered-list.svg": "/react-textarea-markdown-editor/static/media/unordered-list.421c3226.svg",
-    "static/media/youtube.svg": "/react-textarea-markdown-editor/static/media/youtube.e778f247.svg"
+    "static/css/main.9155dc6e.chunk.css.map": "/react-textarea-markdown-editor/static/css/main.9155dc6e.chunk.css.map"
   }
 }
