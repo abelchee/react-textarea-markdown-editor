@@ -7,7 +7,6 @@ import { ILineMarker } from './type';
 export interface IEditorLineMarkerProps {
   config: ILineMarker;
   className?: string;
-  removeInnerClass?: boolean;
 }
 
 const EditorLineMarker: React.FunctionComponent<IEditorLineMarkerProps> = props => {
@@ -15,10 +14,7 @@ const EditorLineMarker: React.FunctionComponent<IEditorLineMarkerProps> = props 
   const { config } = props;
   registerLineMarker!(config.marker);
   return (
-    <span
-      onClick={() => markLine!(config.marker)}
-      className={classNames({ 'tme-menu-item-inner': !props.removeInnerClass }, props.className)}
-    >
+    <span onClick={() => markLine!(config.marker)} className={classNames('tme-menu-item-inner', props.className)}>
       {config.name}
     </span>
   );

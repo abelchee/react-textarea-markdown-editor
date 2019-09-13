@@ -25,18 +25,15 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
     setShow(false);
   });
   const currentMarker = config.markers[index];
-  let dropdownTrigger;
-  switch (currentMarker.type) {
-    case 'line-marker':
-      dropdownTrigger = <EditorLineMarker key={currentMarker.key} config={currentMarker} />;
-      break;
-    case 'marker':
-      dropdownTrigger = <EditorMarker key={currentMarker.key} config={currentMarker} />;
-      break;
-  }
   return (
     <li ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)} title={currentMarker.title}>
-      {dropdownTrigger}
+      {currentMarker.type === 'line-marker' ? (
+        <EditorLineMarker config={currentMarker} />
+      ) : currentMarker.type === 'marker' ? (
+        <EditorMarker config={currentMarker} />
+      ) : (
+        <EditorTemplateMarker config={currentMarker} />
+      )}
       <span
         className="tme-dropdown-arrow"
         onClick={() => {
