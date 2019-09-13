@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import TextareaMarkdownEditor from 'react-textarea-markdown-editor';
 import languages from './lang';
-import linkIcon from './icon/link.svg';
-import orderedListIcon from './icon/ordered-list.svg';
-import tableIcon from './icon/table.svg';
-import unorderedListIcon from './icon/unordered-list.svg';
-import youtubeIcon from './icon/youtube.svg';
+import { Container, Divider, Header, Icon } from 'semantic-ui-react';
 
 const md = require('markdown-it')({}).use(require('markdown-it-video'),
   {
@@ -140,21 +136,21 @@ function App () {
         {
           key: 'unordered-list',
           marker: '* ',
-          name: <img alt="" src={unorderedListIcon}/>,
+          name: <Icon name="list ul" fitted size="large"/>,
           title: languages[language].unorderedList,
           type: 'line-marker',
         },
         {
           key: 'ordered-list',
           marker: '1. ',
-          name: <img alt="" src={orderedListIcon}/>,
+          name: <Icon name="list ol" fitted size="large"/>,
           title: languages[language].orderedList,
           type: 'line-marker',
         },
         {
           key: 'table',
           multipleLine: true,
-          name: <img alt="" src={tableIcon}/>,
+          name: <Icon name="table" fitted size="large"/>,
           template: `| Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
@@ -172,7 +168,7 @@ function App () {
         {
           defaultText: 'text',
           key: 'link',
-          name: <img alt="" src={linkIcon}/>,
+          name: <Icon name="linkify" fitted size="large"/>,
           prefix: '[',
           suffix: '](url)',
           title: languages[language].link,
@@ -181,7 +177,7 @@ function App () {
         {
           defaultText: 'YMmdQw17TU4',
           key: 'youtube',
-          name: <img alt="" src={youtubeIcon}/>,
+          name: <Icon name="youtube play" fitted size="large"/>,
           prefix: '@[youtube](',
           suffix: ')',
           title: languages[language].youtube,
@@ -193,17 +189,26 @@ function App () {
   ];
 
   return (
-    <div className="App">
+    <Container>
       <button type="button" onClick={() => setLang('en')}>English</button>
       <button type="button" onClick={() => setLang('zh')}>简体中文</button>
-      <br/>
-      <br/>
 
-      <TextareaMarkdownEditor language={language} id="2222" rows={10}/>
-      <hr/>
+      <Divider horizontal>
+        <Header as='h4'>
+          <Icon name='tag' />
+          Default
+        </Header>
+      </Divider>
+      <TextareaMarkdownEditor language={language} id="2222" rows={10} doParse={text => md.render(text)}/>
+      <Divider horizontal>
+        <Header as='h4'>
+          <Icon name='tag' />
+          Customized
+        </Header>
+      </Divider>
       <TextareaMarkdownEditor markers={markers} language={language} id="111111" rows={10}
                               doParse={text => md.render(text)}/>
-    </div>
+    </Container>
   );
 }
 
