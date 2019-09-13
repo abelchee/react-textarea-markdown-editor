@@ -22,10 +22,13 @@ const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = pr
   useClickAway(ref, () => {
     setShow(false);
   });
-  const currentMarker = config.markers[index];
   return (
-    <li ref={ref} className={classNames('tme-menu-item tme-dropdown', props.className)} title={currentMarker.title}>
-      <EditorMarker config={currentMarker} />
+    <li
+      ref={ref}
+      className={classNames('tme-menu-item tme-dropdown', props.className)}
+      title={config.markers[index].title}
+    >
+      <EditorMarker config={config.markers[index]} />
       <span
         className="tme-dropdown-arrow"
         onClick={() => {
