@@ -7,6 +7,12 @@ import linkIcon from './icon/link.svg';
 import orderedListIcon from './icon/ordered-list.svg';
 // @ts-ignore
 import unorderedListIcon from './icon/unordered-list.svg';
+// @ts-ignore
+import previewIcon from './icon/eye.svg';
+// @ts-ignore
+import editIcon from './icon/edit.svg';
+// @ts-ignore
+import helpIcon from './icon/help.svg';
 import languages from './lang.json';
 import { IMarkerGroup } from './type';
 
@@ -183,13 +189,17 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
       <ul className="tme-menu-group right">
         <li className="tme-menu-item tme-link">
           <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">
-            <b>?</b>
+            <img alt="" src={helpIcon} />
           </a>
         </li>
         {!readOnly && (
-          <li className="tme-menu-item" onClick={() => toggleEdit!()}>
+          <li
+            className="tme-menu-item"
+            onClick={() => toggleEdit!()}
+            title={isEditing ? languages[language].preview : languages[language].edit}
+          >
             <span className="tme-menu-item-inner">
-              {isEditing ? languages[language].preview : languages[language].edit}
+              <img alt="" src={isEditing ? previewIcon : editIcon} />
             </span>
           </li>
         )}
