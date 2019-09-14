@@ -48,4 +48,28 @@ describe('TextareaMarkdownEditor', () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+  test('template', () => {
+    const component = renderer.create(
+      <TextareaMarkdownEditor
+        doParse={it => it}
+        markers={[
+          {
+            key: 'g',
+            markers: [
+              {
+                key: 't',
+                multipleLine: true,
+                name: 'template',
+                template: '[]()',
+                title: 'template',
+                type: 'template',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

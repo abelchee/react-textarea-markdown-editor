@@ -35,7 +35,6 @@ export interface IDropdown {
 }
 
 export interface IMarkerGroup {
-  type: 'group';
   key: string;
   markers: Array<IMarker | ILineMarker | ITemplateMarker | IDropdown>;
 }

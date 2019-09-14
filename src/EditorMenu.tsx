@@ -60,7 +60,6 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             type: 'dropdown',
           },
         ],
-        type: 'group',
       },
       {
         key: 'text',
@@ -125,7 +124,6 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             type: 'dropdown',
           },
         ],
-        type: 'group',
       },
       {
         key: 'list',
@@ -145,7 +143,6 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             type: 'line-marker',
           },
         ],
-        type: 'group',
       },
       {
         key: 'additional',
@@ -160,7 +157,6 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
             type: 'marker',
           },
         ],
-        type: 'group',
       },
     ];
   }
