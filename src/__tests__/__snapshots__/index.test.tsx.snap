@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextareaMarkdownEditor TextareaMarkdownEditor should initialize as it is 1`] = `
+exports[`TextareaMarkdownEditor should have english words displayed 1`] = `
 <div
   className="tme-container mock-container"
   id="container"
@@ -281,17 +281,318 @@ exports[`TextareaMarkdownEditor TextareaMarkdownEditor should initialize as it i
   </div>
   <textarea
     autoComplete="off"
-    autoFocus={false}
+    autoFocus={true}
     className="tme-textarea"
+    defaultValue="1. Header"
     id="textarea"
     onChange={[Function]}
     onKeyDown={[Function]}
-    rows={5}
+    rows={10}
     style={
       Object {
         "width": "90%",
       }
     }
+    value="1. Header"
+    wrap="virtual"
+  />
+</div>
+`;
+
+exports[`TextareaMarkdownEditor should have zh words displayed 1`] = `
+<div
+  className="tme-container mock-container"
+  id="container"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="tme-menu"
+  >
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item tme-dropdown"
+        title="<h1></h1>"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <b>
+            H1
+          </b>
+        </span>
+        <span
+          className="tme-dropdown-arrow"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+        <div
+          className="tme-dropdown-content"
+        >
+          <ul>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="<h1></h1>"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  H1
+                </b>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="<h2></h2>"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  H2
+                </b>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="<h3></h3>"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  H3
+                </b>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item tme-dropdown"
+        title="加粗"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <b>
+            加粗
+          </b>
+        </span>
+        <span
+          className="tme-dropdown-arrow"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+        <div
+          className="tme-dropdown-content"
+        >
+          <ul>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="加粗"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  加粗
+                </b>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="斜体"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <i>
+                  斜体
+                </i>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="划线"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <del>
+                  划线
+                </del>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="引用"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                引用
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="内置代码"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                内置代码
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="代码"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                代码
+              </span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item"
+        title="无序列表"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+      <li
+        className="tme-menu-item"
+        title="有序列表"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item"
+        title="链接"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group right"
+    >
+      <li
+        className="tme-menu-item tme-link"
+      >
+        <a
+          href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
+          target="_blank"
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </a>
+      </li>
+      <li
+        className="tme-menu-item"
+        onClick={[Function]}
+        title="预览"
+      >
+        <span
+          className="tme-menu-item-inner"
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+    </ul>
+  </div>
+  <textarea
+    autoComplete="off"
+    autoFocus={true}
+    className="tme-textarea"
+    defaultValue="1. Header"
+    id="textarea"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    rows={10}
+    style={
+      Object {
+        "width": "90%",
+      }
+    }
+    value="1. Header"
     wrap="virtual"
   />
 </div>

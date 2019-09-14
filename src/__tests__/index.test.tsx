@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import TextareaMarkdownEditor from '../TextareaMarkdownEditor';
+import TextareaMarkdownEditor from '../index';
 
 describe('TextareaMarkdownEditor', () => {
-  test('TextareaMarkdownEditor should initialize as it is', () => {
+  test('should have english words displayed', () => {
     const component = renderer.create(
       <TextareaMarkdownEditor
         id="container"
@@ -12,6 +12,33 @@ describe('TextareaMarkdownEditor', () => {
         className="mock-container"
         style={{ width: '100%' }}
         textareaStyle={{ width: '90%' }}
+        value="1. Header"
+        defaultValue="1. Header"
+        rows={10}
+        autoFocus
+      />,
+    );
+    const testInstance = component.root;
+    const { props } = testInstance.findByType(TextareaMarkdownEditor);
+    expect(props.id).toBe('container');
+
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  test('should have Chinese words displayed', () => {
+    const component = renderer.create(
+      <TextareaMarkdownEditor
+        id="container"
+        doParse={it => it}
+        textareaId="textarea"
+        className="mock-container"
+        style={{ width: '100%' }}
+        textareaStyle={{ width: '90%' }}
+        value="1. Header"
+        defaultValue="1. Header"
+        rows={10}
+        autoFocus
+        language="zh"
       />,
     );
     const testInstance = component.root;
