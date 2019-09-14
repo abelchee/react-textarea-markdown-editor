@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextareaMarkdownEditor TextareaMarkdownEditor should initialize as it is 1`] = `
+<div
+  className="tme-container"
+  id="123"
+>
+  <div
+    className="tme-menu"
+  >
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item tme-dropdown"
+        title="<h1></h1>"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <b>
+            H1
+          </b>
+        </span>
+        <span
+          className="tme-dropdown-arrow"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+        <div
+          className="tme-dropdown-content"
+        >
+          <ul>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="<h1></h1>"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  H1
+                </b>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="<h2></h2>"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  H2
+                </b>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="<h3></h3>"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  H3
+                </b>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item tme-dropdown"
+        title="Bold"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <b>
+            Bold
+          </b>
+        </span>
+        <span
+          className="tme-dropdown-arrow"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+        <div
+          className="tme-dropdown-content"
+        >
+          <ul>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="Bold"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <b>
+                  Bold
+                </b>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="Italic"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <i>
+                  Italic
+                </i>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="Strikethrough"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                <del>
+                  Strikethrough
+                </del>
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="Blockquote"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                Blockquote
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="Inline code"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                Inline code
+              </span>
+            </li>
+            <li
+              className="tme-menu-item tme-dropdown-item"
+              onClick={[Function]}
+              title="Code"
+            >
+              <span
+                className="tme-menu-item-inner"
+                onClick={[Function]}
+              >
+                Code
+              </span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item"
+        title="Unordered List"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+      <li
+        className="tme-menu-item"
+        title="Ordered List"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group left"
+    >
+      <li
+        className="tme-menu-item"
+        title="Link"
+      >
+        <span
+          className="tme-menu-item-inner"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+    </ul>
+    <ul
+      className="tme-menu-group right"
+    >
+      <li
+        className="tme-menu-item tme-link"
+      >
+        <a
+          href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
+          target="_blank"
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </a>
+      </li>
+      <li
+        className="tme-menu-item"
+        onClick={[Function]}
+        title="Preview"
+      >
+        <span
+          className="tme-menu-item-inner"
+        >
+          <img
+            alt=""
+            src="test"
+          />
+        </span>
+      </li>
+    </ul>
+  </div>
+  <textarea
+    autoComplete="off"
+    autoFocus={false}
+    className="tme-textarea"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    rows={5}
+    wrap="virtual"
+  />
+</div>
+`;

@@ -41,7 +41,10 @@
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.ts"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.svg": "<rootDir>/src/__mocks__/svg.ts"
+    }
   },
   "peerDependencies": {
     "react": "^16.8.0",
