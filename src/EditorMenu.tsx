@@ -2,17 +2,17 @@ import * as React from 'react';
 import EditorMarker from './EditorMarker';
 import EditorMenuDropdown from './EditorMenuDropdown';
 // @ts-ignore
+import editIcon from './icon/edit.svg';
+// @ts-ignore
+import previewIcon from './icon/eye.svg';
+// @ts-ignore
+import helpIcon from './icon/help.svg';
+// @ts-ignore
 import linkIcon from './icon/link.svg';
 // @ts-ignore
 import orderedListIcon from './icon/ordered-list.svg';
 // @ts-ignore
 import unorderedListIcon from './icon/unordered-list.svg';
-// @ts-ignore
-import previewIcon from './icon/eye.svg';
-// @ts-ignore
-import editIcon from './icon/edit.svg';
-// @ts-ignore
-import helpIcon from './icon/help.svg';
 import languages from './lang.json';
 import { IMarkerGroup } from './type';
 
