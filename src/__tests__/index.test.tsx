@@ -1,3 +1,4 @@
+import { mount } from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import TextareaMarkdownEditor from '../index';
@@ -71,5 +72,46 @@ describe('TextareaMarkdownEditor', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  test('line-marker', () => {
+    const wrapper = mount(<TextareaMarkdownEditor doParse={it => it} />);
+    const header2 = wrapper.find('li[title="<h2></h2>"]');
+    expect(header2.length).toBe(1);
+    header2.find('span').simulate('click');
+    expect(wrapper.find('textarea').props().value).toBe('## ');
+  });
+  test('marker', () => {
+    const wrapper = mount(<TextareaMarkdownEditor doParse={it => it} />);
+    const header2 = wrapper.find('li[title="Italic"]');
+    expect(header2.length).toBe(1);
+    header2.find('span').simulate('click');
+    expect(wrapper.find('textarea').props().value).toBe('*italic*');
+  });
+  test('template', () => {
+    const wrapper = mount(
+      <TextareaMarkdownEditor
+        doParse={it => it}
+        markers={[
+          {
+            key: 'g',
+            markers: [
+              {
+                key: 't',
+                multipleLine: true,
+                name: 'template',
+                template: '[]()',
+                title: 'template',
+                type: 'template',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    const header2 = wrapper.find('li[title="template"]');
+    expect(header2.length).toBe(1);
+    header2.find('span').simulate('click');
+    expect(wrapper.find('textarea').props().value).toBe('\n[]()\n');
   });
 });
