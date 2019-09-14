@@ -11,6 +11,7 @@ export interface ITextareaMarkdownEditor {
   textareaId?: string;
   className?: string;
   style?: object;
+  textareaStyle?: object;
   rows?: number;
   defaultValue?: string;
   value?: string;
@@ -43,7 +44,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
   }
 
   return (
-    <div id={props.id} className={classNames('tme-container', props.className)}>
+    <div id={props.id} className={classNames('tme-container', props.className)} style={props.style}>
       <EditContext.Provider
         value={{
           focus: () => {
@@ -87,6 +88,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
             className="tme-textarea"
             ref={textareaRef}
             rows={props.rows}
+            style={props.textareaStyle}
             autoFocus={props.autoFocus}
             defaultValue={props.defaultValue}
             value={value}

@@ -2,8 +2,13 @@
 
 exports[`TextareaMarkdownEditor TextareaMarkdownEditor should initialize as it is 1`] = `
 <div
-  className="tme-container"
-  id="123"
+  className="tme-container mock-container"
+  id="container"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
 >
   <div
     className="tme-menu"
@@ -278,9 +283,15 @@ exports[`TextareaMarkdownEditor TextareaMarkdownEditor should initialize as it i
     autoComplete="off"
     autoFocus={false}
     className="tme-textarea"
+    id="textarea"
     onChange={[Function]}
     onKeyDown={[Function]}
     rows={5}
+    style={
+      Object {
+        "width": "90%",
+      }
+    }
     wrap="virtual"
   />
 </div>
