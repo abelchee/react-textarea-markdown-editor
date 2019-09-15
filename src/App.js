@@ -199,7 +199,7 @@ function App () {
           Default
         </Header>
       </Divider>
-      <TextareaMarkdownEditor language={language} id="2222" rows={10} doParse={text => md.render(text)}/>
+      <TextareaMarkdownEditor language={language} id="2222" rows={10} doParse={text => md.render(text)} />
       <Divider horizontal>
         <Header as='h4'>
           <Icon name='tag' />
