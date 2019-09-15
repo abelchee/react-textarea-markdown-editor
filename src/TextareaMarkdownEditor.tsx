@@ -30,7 +30,7 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
   const textareaRef = useRef<EnhancedTextarea>(null);
   const [lineMarkers, setLineMarkers] = useState<string[]>([]);
   const [edit, setEdit] = useState(!readOnly);
-  const [value, setValue] = useState(props.value || props.defaultValue);
+  const [value, setValue] = useState(props.defaultValue);
 
   function toggleEdit() {
     setEdit(!edit);
@@ -90,8 +90,8 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
             rows={props.rows}
             style={props.textareaStyle}
             autoFocus={props.autoFocus}
-            defaultValue={props.defaultValue}
-            value={value}
+            defaultValue={value}
+            value={props.value}
             onChange={onChange}
             onKeyDown={props.onKeyDown}
             onKeyPress={props.onKeyPress}

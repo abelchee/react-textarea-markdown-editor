@@ -79,14 +79,14 @@ describe('TextareaMarkdownEditor', () => {
     const header2 = wrapper.find('li[title="<h2></h2>"]');
     expect(header2.length).toBe(1);
     header2.find('span').simulate('click');
-    expect(wrapper.find('textarea').props().value).toBe('## ');
+    expect(wrapper.find('textarea').props().defaultValue).toBe('## ');
   });
   test('marker', () => {
     const wrapper = mount(<TextareaMarkdownEditor doParse={it => it} />);
     const header2 = wrapper.find('li[title="Italic"]');
     expect(header2.length).toBe(1);
     header2.find('span').simulate('click');
-    expect(wrapper.find('textarea').props().value).toBe('*italic*');
+    expect(wrapper.find('textarea').props().defaultValue).toBe('*italic*');
   });
   test('template', () => {
     const wrapper = mount(
@@ -112,6 +112,15 @@ describe('TextareaMarkdownEditor', () => {
     const header2 = wrapper.find('li[title="template"]');
     expect(header2.length).toBe(1);
     header2.find('span').simulate('click');
-    expect(wrapper.find('textarea').props().value).toBe('\n[]()\n');
+    expect(wrapper.find('textarea').props().defaultValue).toBe('\n[]()\n');
+  });
+
+  test('value change', () => {
+    const wrapper = mount(<TextareaMarkdownEditor doParse={it => it} value="123" />);
+    expect(wrapper.find('textarea').props().value).toBe('123');
+    wrapper.setProps({ value: '456' });
+    expect(wrapper.find('textarea').props().value).toBe('456');
+    wrapper.setProps({ value: '' });
+    expect(wrapper.find('textarea').props().value).toBe('');
   });
 });
