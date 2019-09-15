@@ -11,14 +11,14 @@ $tme-arrow-size: 5px;
   }
 
   .tme-viewer,
-  .tme-textarea {
+  textarea.tme-textarea {
     border: 1px solid #d4d4d5;
     border-radius: 2px 2px;
     border-top: none;
     padding: 5px;
   }
 
-  .tme-textarea {
+  textarea.tme-textarea {
     overflow-y: auto;
     width: 100%;
     resize: vertical;
@@ -73,7 +73,7 @@ $tme-arrow-size: 5px;
         align-items: stretch;
 
         &:hover {
-          border: 1px solid #959595 !important;
+          border: 1px solid #959595;
           background-color: #f9f9f9;
           cursor: pointer;
           z-index: 100;
@@ -122,7 +122,7 @@ $tme-arrow-size: 5px;
               width: 100%;
             }
             &:hover {
-              border-left: 1px solid #959595 !important;
+              border-left: 1px solid #959595;
               background-color: #f1f1f1;
               cursor: pointer;
             }
