@@ -1,6 +1,6 @@
 {
   "name": "react-textarea-markdown-editor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React Markdown Editor based on Textarea",
   "main": "build/index.js",
   "module": "build/index.es.js",
