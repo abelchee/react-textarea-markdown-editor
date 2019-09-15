@@ -23,6 +23,10 @@ export interface ITextareaMarkdownEditor {
   doParse: (text: string) => string;
   language?: string;
   markers?: IMarkerGroup[];
+  onCopy?: (event: React.ClipboardEvent) => void;
+  onCopyCapture?: (event: React.ClipboardEvent) => void;
+  onPaste?: (event: React.ClipboardEvent) => void;
+  onPasteCapture?: (event: React.ClipboardEvent) => void;
 }
 
 const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> = props => {
@@ -96,6 +100,10 @@ const TextareaMarkdownEditor: React.FunctionComponent<ITextareaMarkdownEditor> =
             onKeyDown={props.onKeyDown}
             onKeyPress={props.onKeyPress}
             lineMarkers={lineMarkers}
+            onPaste={props.onPaste}
+            onPasteCapture={props.onPasteCapture}
+            onCopy={props.onCopy}
+            onCopyCapture={props.onCopyCapture}
           />
         ) : (
           <div
