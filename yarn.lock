@@ -8151,10 +8151,10 @@ react-dom@^16.9.0:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
-react-enhanced-textarea@2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/react-enhanced-textarea/-/react-enhanced-textarea-2.1.6.tgz#82b36e92bc7dac1b7e7ee2a8b6d85c7f4f5b91a2"
-  integrity sha512-YN4DD7B2oJ3YGokwloL4Ulvp8RY9FqTCNJCa0YLHeXbckqdEW3pXci/9r3S0KTJWR73idJ34eZarz+5LeZWYyQ==
+react-enhanced-textarea@2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/react-enhanced-textarea/-/react-enhanced-textarea-2.1.7.tgz#46209c65b78c40e033f97991114f51f983bc6cae"
+  integrity sha512-mqmcegWg0+E15Lg/2guhB8WGzaibO+I9SjIxEbH+BCPCemUxo4a+0PkRAu+3sLI7meVvFbOxKsYmMi9/d2AS0Q==
 
 react-error-overlay@^6.0.1:
   version "6.0.1"
@@ -8244,13 +8244,13 @@ react-scripts@3.1.1:
   optionalDependencies:
     fsevents "2.0.7"
 
-react-textarea-markdown-editor@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-textarea-markdown-editor/-/react-textarea-markdown-editor-1.0.1.tgz#e6d742008a950148ddffa5800b5a8dfd49dd3484"
-  integrity sha512-tYBrB8BLUMm2yQi8+KoHfeJO0Uu0FpTCrEBsAHFSLJ0PP1bUrZlqXTUny1+mLWCx2bkdw8TqmFmMUUQKGLl/kQ==
+react-textarea-markdown-editor@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-textarea-markdown-editor/-/react-textarea-markdown-editor-1.0.4.tgz#7e83fcf718377cb7c2a40e4363756771cb23f1b0"
+  integrity sha512-AFUQwSxE4dRg5gf9pOKsxrYtwTjPV3PKhAlywOKZ2OGlTbKqVYOGhSsO4iumifojpKq/qWL5+SexqRsaSpiZwg==
   dependencies:
     classnames "^2.2.6"
-    react-enhanced-textarea "2.1.6"
+    react-enhanced-textarea "2.1.7"
     react-use "^12.2.0"
 
 react-use@^12.2.0:
