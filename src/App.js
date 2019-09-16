@@ -188,6 +188,23 @@ function App () {
     },
   ];
 
+  function onPaste (e) {
+    if (!e.clipboardData) {
+      return;
+    }
+    const items = e.clipboardData.items;
+    if (!items) {
+      return;
+    }
+    for (let i = 0; i < items.length; i++) {
+      // Skip content if not image
+      if (items[i].type.indexOf('image') === -1) continue;
+      // Retrieve image on clipboard as blob
+      const file = items[i].getAsFile();
+      console.log(file);
+    }
+  }
+
   return (
     <Container>
       <button type="button" onClick={() => setLang('en')}>English</button>
@@ -195,19 +212,19 @@ function App () {
 
       <Divider horizontal>
         <Header as='h4'>
-          <Icon name='tag' />
+          <Icon name='tag'/>
           Default
         </Header>
       </Divider>
-      <TextareaMarkdownEditor language={language} id="2222" rows={10} doParse={text => md.render(text)} />
+      <TextareaMarkdownEditor language={language} id="2222" rows={10} doParse={text => md.render(text)}/>
       <Divider horizontal>
         <Header as='h4'>
-          <Icon name='tag' />
+          <Icon name='tag'/>
           Customized
         </Header>
       </Divider>
       <TextareaMarkdownEditor markers={markers} language={language} id="111111" rows={10}
-                              doParse={text => md.render(text)}/>
+                              doParse={text => md.render(text)} onPaste={onPaste}/>
     </Container>
   );
 }
