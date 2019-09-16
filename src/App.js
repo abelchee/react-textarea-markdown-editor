@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './App.css';
 import TextareaMarkdownEditor from 'react-textarea-markdown-editor';
 import languages from './lang';
 import { Container, Divider, Header, Icon } from 'semantic-ui-react';
+import FileReader from 'promise-file-reader';
 
 const md = require('markdown-it')({}).use(require('markdown-it-video'),
   {
@@ -15,6 +16,9 @@ const md = require('markdown-it')({}).use(require('markdown-it-video'),
 
 function App () {
   const [language, setLang] = useState('en');
+  const [images,setImages] = useState([]);
+
+  const editorRef = useRef(null);
 
   const markers = [
     {
@@ -183,12 +187,34 @@ function App () {
           title: languages[language].youtube,
           type: 'marker',
         },
+        {
+          key: 'images',
+          markers: [
+            {
+              key: 'dummy',
+              name: <Icon name="image" fitted size="large"/>,
+              template: '![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")',
+                title: languages[language].image,
+              type: 'template',
+            },
+            ...images.map((data,index)=>({
+              defaultText: 'alt text',
+              key: `image${index+1}`,
+              name: `image${index+1}`,
+              prefix: '![',
+              suffix: `][image${index+1}]`,
+              title: `image${index+1}`,
+              type: 'marker',
+            }))
+          ],
+          type: 'dropdown',
+        },
       ],
       type: 'group',
-    },
+    }
   ];
 
-  function onPaste (e) {
+  async function onPaste (e) {
     if (!e.clipboardData) {
       return;
     }
@@ -201,7 +227,9 @@ function App () {
       if (items[i].type.indexOf('image') === -1) continue;
       // Retrieve image on clipboard as blob
       const file = items[i].getAsFile();
-      console.log(file);
+      const data = await FileReader.readAsDataURL(file);
+      console.log(data);
+      setImages([...images,data])
     }
   }
 
@@ -223,8 +251,8 @@ function App () {
           Customized
         </Header>
       </Divider>
-      <TextareaMarkdownEditor markers={markers} language={language} id="111111" rows={10}
-                              doParse={text => md.render(text)} onPaste={onPaste}/>
+      <TextareaMarkdownEditor ref={editorRef} markers={markers} language={language} id="111111" rows={10}
+                              doParse={text => md.render(`${text}\n\n${images.map((data,index)=>`[image${index+1}]: ${data}`).join('\n\n')}`)} onPaste={onPaste}/>
     </Container>
   );
 }

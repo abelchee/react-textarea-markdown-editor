@@ -18,6 +18,7 @@
     "inlineCode": "Inline code",
     "code": "Code",
     "hr": "<hr />",
+    "image": "Image",
     "youtube": "Youtube"
   },
   "zh": {
@@ -39,6 +40,7 @@
     "inlineCode": "内置代码",
     "code": "代码",
     "hr": "<hr />",
+    "image": "图片",
     "youtube": "Youtube"
   }
 }
