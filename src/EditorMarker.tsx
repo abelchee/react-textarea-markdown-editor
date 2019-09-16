@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import EditorContext from './EditorContext';
 import { ILineMarker, IMarker, ITemplateMarker } from './type';
 
@@ -11,6 +11,11 @@ export interface IEditorMarkerProps {
 
 const EditorMarker: React.FunctionComponent<IEditorMarkerProps> = props => {
   const { mark, markLine, registerLineMarker, template } = useContext(EditorContext);
+  useEffect(() => {
+    if (config.type === 'line-marker') {
+      registerLineMarker!(config.marker);
+    }
+  });
   const { config } = props;
   let handler;
   switch (config.type) {
@@ -18,7 +23,6 @@ const EditorMarker: React.FunctionComponent<IEditorMarkerProps> = props => {
       handler = () => mark!(config.prefix, config.suffix, config.defaultText || '', config.multipleLine || false);
       break;
     case 'line-marker':
-      registerLineMarker!(config.marker);
       handler = () => markLine!(config.marker);
       break;
     case 'template':
