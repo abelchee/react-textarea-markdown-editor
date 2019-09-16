@@ -54,6 +54,38 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
     };
     this.toggleEdit = this.toggleEdit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.focus = this.focus.bind(this);
+    this.mark = this.mark.bind(this);
+    this.markLine = this.markLine.bind(this);
+    this.registerLineMarker = this.registerLineMarker.bind(this);
+    this.markTemplate = this.markTemplate.bind(this);
+  }
+
+  public focus() {
+    this.textareaRef.current!.focus();
+  }
+  public mark(prefix: string, suffix: string, defaultText: string, multipleLine: boolean) {
+    if (multipleLine) {
+      this.textareaRef.current!.toggleMultipleLineMarker({ prefix, suffix, defaultText });
+    } else {
+      this.textareaRef.current!.toggleMarker({ prefix, suffix, defaultText });
+    }
+  }
+  public markLine(marker: string) {
+    this.textareaRef.current!.toggleLineMarker(marker);
+  }
+  public registerLineMarker(marker: string) {
+    const index = this.state.lineMarkers.indexOf(marker);
+    if (index < 0) {
+      this.setState({ ...this.state, lineMarkers: [...this.state.lineMarkers, marker] });
+    }
+  }
+  public markTemplate(template: string, multipleLine: boolean) {
+    if (multipleLine) {
+      this.textareaRef.current!.toggleMultipleLineTemplate(template);
+    } else {
+      this.textareaRef.current!.toggleTemplate(template);
+    }
   }
 
   public render() {
@@ -62,32 +94,11 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
       <div id={this.props.id} className={classNames('tme-container', this.props.className)} style={this.props.style}>
         <EditContext.Provider
           value={{
-            focus: () => {
-              this.textareaRef.current!.focus();
-            },
-            mark: (prefix: string, suffix: string, defaultText: string, multipleLine: boolean) => {
-              if (multipleLine) {
-                this.textareaRef.current!.toggleMultipleLineMarker({ prefix, suffix, defaultText });
-              } else {
-                this.textareaRef.current!.toggleMarker({ prefix, suffix, defaultText });
-              }
-            },
-            markLine: (marker: string) => {
-              this.textareaRef.current!.toggleLineMarker(marker);
-            },
-            registerLineMarker: (marker: string) => {
-              const index = this.state.lineMarkers.indexOf(marker);
-              if (index < 0) {
-                this.setState({ ...this.state, lineMarkers: [...this.state.lineMarkers, marker] });
-              }
-            },
-            template: (template: string, multipleLine: boolean) => {
-              if (multipleLine) {
-                this.textareaRef.current!.toggleMultipleLineTemplate(template);
-              } else {
-                this.textareaRef.current!.toggleTemplate(template);
-              }
-            },
+            focus: this.focus,
+            mark: this.mark,
+            markLine: this.markLine,
+            registerLineMarker: this.registerLineMarker,
+            template: this.markTemplate,
           }}
         >
           <EditorMenu
