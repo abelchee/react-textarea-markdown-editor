@@ -13,5 +13,5 @@ code {
 }
 
 .dropping{
-  border: 1px solid red;
+  border: 1px dashed #2196f3;
 }
