@@ -24,11 +24,12 @@ function App () {
     noClick: true,
     noKeyboard: true,
     multiple: false,
+    accept: 'image/jpeg, image/png',
     onDropAccepted: async (files, event) => {
       const data = await FileReader.readAsDataURL(files[0]);
       editorRef.current.mark('![', `][image${images.length + 1}]`, 'alt text');
       setImages([...images, data]);
-    }
+    },
   });
 
   const files = acceptedFiles.map(file => (
@@ -210,6 +211,12 @@ function App () {
           key: 'images',
           markers: [
             {
+              key: 'open',
+              name: <Icon name="image" fitted size="large" onClick={open}/>,
+              template: 'test',
+              type: 'template',
+            },
+            {
               key: 'dummy',
               name: <Icon name="image" fitted size="large"/>,
               template: '![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")',
@@ -278,7 +285,7 @@ function App () {
           Customized
         </Header>
       </Divider>
-      <div {...getRootProps({ className: 'dropzone' })} className={isDragActive?'dropping':''}>
+      <div {...getRootProps({ className: 'dropzone' })} className={isDragActive ? 'dropping' : ''}>
         <input {...getInputProps()} />
         <TextareaMarkdownEditor ref={editorRef} markers={markers} language={language} id="111111" rows={10}
                                 placeholder="You can paste your image here!"
