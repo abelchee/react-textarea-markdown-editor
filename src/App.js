@@ -4,6 +4,8 @@ import TextareaMarkdownEditor from 'react-textarea-markdown-editor';
 import languages from './lang';
 import { Container, Divider, Header, Icon } from 'semantic-ui-react';
 import FileReader from 'promise-file-reader';
+import { useDropzone } from 'react-dropzone';
+
 
 const md = require('markdown-it')({}).use(require('markdown-it-video'),
   {
@@ -17,6 +19,17 @@ const md = require('markdown-it')({}).use(require('markdown-it-video'),
 function App () {
   const [language, setLang] = useState('en');
   const [images, setImages] = useState([]);
+  const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
+    // Disable click and keydown behavior
+    noClick: true,
+    noKeyboard: true,
+  });
+
+  const files = acceptedFiles.map(file => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
 
   const editorRef = useRef(null);
 
@@ -259,10 +272,14 @@ function App () {
           Customized
         </Header>
       </Divider>
-      <TextareaMarkdownEditor ref={editorRef} markers={markers} language={language} id="111111" rows={10}
-                              placeholder="You can paste your image here!"
-                              doParse={text => md.render(`${text}\n\n${images.map((data, index) => `[image${index + 1}]: ${data}`).join('\n\n')}`)}
-                              onPaste={onPaste}/>
+      <div {...getRootProps({ className: 'dropzone' })}>
+        <input {...getInputProps()} />
+        <TextareaMarkdownEditor ref={editorRef} markers={markers} language={language} id="111111" rows={10}
+                                placeholder="You can paste your image here!"
+                                doParse={text => md.render(`${text}\n\n${images.map((data, index) => `[image${index + 1}]: ${data}`).join('\n\n')}`)}
+                                onPaste={onPaste}/>
+      </div>
+      {files}
     </Container>
   );
 }
