@@ -8486,10 +8486,10 @@ react-dom@^16.9.0:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
-react-enhanced-textarea@2.1.7:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/react-enhanced-textarea/-/react-enhanced-textarea-2.1.7.tgz#46209c65b78c40e033f97991114f51f983bc6cae"
-  integrity sha512-mqmcegWg0+E15Lg/2guhB8WGzaibO+I9SjIxEbH+BCPCemUxo4a+0PkRAu+3sLI7meVvFbOxKsYmMi9/d2AS0Q==
+react-enhanced-textarea@2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/react-enhanced-textarea/-/react-enhanced-textarea-2.1.9.tgz#910a8a5c9358aa69c04dd82657791da644c47b83"
+  integrity sha512-jeeKDfsih1yHD77Z/uSEf7t+mSU84obTjTO6gcydDF9EEbdS/xd62x1Fy5bzS2/x9a5B+aHpO/SH6AynnL6kaA==
 
 react-error-overlay@^4.0.1:
   version "4.0.1"

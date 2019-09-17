@@ -10,6 +10,7 @@ export interface ITextareaMarkdownEditor {
   id?: string;
   textareaId?: string;
   className?: string;
+  placeholder?: string;
   style?: object;
   textareaStyle?: object;
   rows?: number;
@@ -126,6 +127,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
               onPasteCapture={this.props.onPasteCapture}
               onCopy={this.props.onCopy}
               onCopyCapture={this.props.onCopyCapture}
+              placeholder={this.props.placeholder}
             />
           ) : (
             <div
