@@ -229,7 +229,6 @@ function App () {
       const file = items[i].getAsFile();
       console.log(items[i]);
       if (file) {
-        e.persist();
         e.preventDefault();
         e.stopPropagation();
         // File name
@@ -238,8 +237,6 @@ function App () {
         console.log(data);
         editorRef.current.mark('![', `][image${images.length + 1}]`, 'alt text');
         setImages([...images, data]);
-        e.preventDefault();
-        e.stopPropagation();
       }
     }
   }
