@@ -18,11 +18,25 @@ const md = require('markdown-it')({}).use(require('markdown-it-video'),
 
 function App () {
   const [language, setLang] = useState('en');
+  const [dropping, setDropping] = useState(false);
   const [images, setImages] = useState([]);
   const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
     // Disable click and keydown behavior
     noClick: true,
     noKeyboard: true,
+    multiple: false,
+    onDragEnter: event => {
+      setDropping(true)
+    },
+    onDragLeave: event => {
+      setDropping(false)
+    },
+    onDropAccepted: async (files, event) => {
+      setDropping(false)
+      const data = await FileReader.readAsDataURL(files[0]);
+      editorRef.current.mark('![', `][image${images.length + 1}]`, 'alt text');
+      setImages([...images, data]);
+    }
   });
 
   const files = acceptedFiles.map(file => (
@@ -272,14 +286,13 @@ function App () {
           Customized
         </Header>
       </Divider>
-      <div {...getRootProps({ className: 'dropzone' })}>
+      <div {...getRootProps({ className: 'dropzone' })} className={dropping?'dropping':''}>
         <input {...getInputProps()} />
         <TextareaMarkdownEditor ref={editorRef} markers={markers} language={language} id="111111" rows={10}
                                 placeholder="You can paste your image here!"
                                 doParse={text => md.render(`${text}\n\n${images.map((data, index) => `[image${index + 1}]: ${data}`).join('\n\n')}`)}
                                 onPaste={onPaste}/>
       </div>
-      {files}
     </Container>
   );
 }
