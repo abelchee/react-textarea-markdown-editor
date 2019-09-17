@@ -16,7 +16,7 @@ const md = require('markdown-it')({}).use(require('markdown-it-video'),
 
 function App () {
   const [language, setLang] = useState('en');
-  const [images,setImages] = useState([]);
+  const [images, setImages] = useState([]);
 
   const editorRef = useRef(null);
 
@@ -194,24 +194,24 @@ function App () {
               key: 'dummy',
               name: <Icon name="image" fitted size="large"/>,
               template: '![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")',
-                title: languages[language].image,
+              title: languages[language].image,
               type: 'template',
             },
-            ...images.map((data,index)=>({
+            ...images.map((data, index) => ({
               defaultText: 'alt text',
-              key: `image${index+1}`,
-              name: `image${index+1}`,
+              key: `image${index + 1}`,
+              name: `image${index + 1}`,
               prefix: '![',
-              suffix: `][image${index+1}]`,
-              title: `image${index+1}`,
+              suffix: `][image${index + 1}]`,
+              title: `image${index + 1}`,
               type: 'marker',
-            }))
+            })),
           ],
           type: 'dropdown',
         },
       ],
       type: 'group',
-    }
+    },
   ];
 
   async function onPaste (e) {
@@ -227,9 +227,20 @@ function App () {
       if (items[i].type.indexOf('image') === -1) continue;
       // Retrieve image on clipboard as blob
       const file = items[i].getAsFile();
-      const data = await FileReader.readAsDataURL(file);
-      console.log(data);
-      setImages([...images,data])
+      console.log(items[i]);
+      if (file) {
+        e.persist();
+        e.preventDefault();
+        e.stopPropagation();
+        // File name
+        console.log(e.clipboardData.getData('Text'));
+        const data = await FileReader.readAsDataURL(file);
+        console.log(data);
+        editorRef.current.mark('![', `][image${images.length + 1}]`, 'alt text');
+        setImages([...images, data]);
+        e.preventDefault();
+        e.stopPropagation();
+      }
     }
   }
 
@@ -252,7 +263,9 @@ function App () {
         </Header>
       </Divider>
       <TextareaMarkdownEditor ref={editorRef} markers={markers} language={language} id="111111" rows={10}
-                              doParse={text => md.render(`${text}\n\n${images.map((data,index)=>`[image${index+1}]: ${data}`).join('\n\n')}`)} onPaste={onPaste}/>
+                              placeholder="You can paste your image here!"
+                              doParse={text => md.render(`${text}\n\n${images.map((data, index) => `[image${index + 1}]: ${data}`).join('\n\n')}`)}
+                              onPaste={onPaste}/>
     </Container>
   );
 }
