@@ -16,6 +16,8 @@ A highly **customizable**, **light weight** *React* markdown editor which is
 ## Example
 https://abelchee.github.io/react-textarea-markdown-editor/
 
+Git repo for example: https://github.com/abelchee/react-textarea-markdown-editor/tree/pages
+
 ## installation
 ```bash
 yarn add react-textarea-markdown-editor
