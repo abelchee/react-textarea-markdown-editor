@@ -213,15 +213,8 @@ function App () {
             {
               key: 'open',
               name: <Icon name="image" fitted size="large" onClick={open}/>,
-              template: 'test',
-              type: 'template',
-            },
-            {
-              key: 'dummy',
-              name: <Icon name="image" fitted size="large"/>,
-              template: '![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")',
-              title: languages[language].image,
-              type: 'template',
+              title: 'Open file',
+              type: 'component',
             },
             ...images.map((data, index) => ({
               defaultText: 'alt text',
