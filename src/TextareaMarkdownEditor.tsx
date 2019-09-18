@@ -65,7 +65,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
   public focus() {
     this.textareaRef.current!.focus();
   }
-  public mark(prefix: string, suffix: string, defaultText: string, multipleLine: boolean) {
+  public mark(prefix: string, suffix: string, defaultText: string, multipleLine?: boolean) {
     if (multipleLine) {
       this.textareaRef.current!.toggleMultipleLineMarker({ prefix, suffix, defaultText });
     } else {
@@ -81,7 +81,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
       this.setState({ ...this.state, lineMarkers: [...this.state.lineMarkers, marker] });
     }
   }
-  public markTemplate(template: string, multipleLine: boolean) {
+  public markTemplate(template: string, multipleLine?: boolean) {
     if (multipleLine) {
       this.textareaRef.current!.toggleMultipleLineTemplate(template);
     } else {
