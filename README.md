@@ -303,7 +303,7 @@ function App(props){
         ],
       },
   ];
-  return <TextareaMarkdownEditor markers={markers} ref={editorRef} doParse={md.render}/>
+  return <TextareaMarkdownEditor markers={markers} ref={editorRef} doParse={md.render} language={language}  />
 }
 
 ```
