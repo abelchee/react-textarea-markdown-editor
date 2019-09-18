@@ -329,7 +329,7 @@ editorRef.current.mark('**','**','bold')
 #### `public markLine(marker: string) => void`
 For unordered-list
 ```typescript
-editorRef.current.mark('* ')
+editorRef.current.markLine('* ')
 ```
 #### `public registerLineMarker(marker: string) => void`
 For automatically add line marker when user clicks enter key
