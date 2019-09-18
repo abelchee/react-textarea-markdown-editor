@@ -2,10 +2,10 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { useContext, useEffect } from 'react';
 import EditorContext from './EditorContext';
-import { ILineMarker, IMarker, ITemplateMarker } from './type';
+import { ICmp, ILineMarker, IMarker, ITemplateMarker } from './type';
 
 export interface IEditorMarkerProps {
-  config: IMarker | ILineMarker | ITemplateMarker;
+  config: IMarker | ILineMarker | ITemplateMarker | ICmp;
   className?: string;
 }
 
@@ -27,6 +27,9 @@ const EditorMarker: React.FunctionComponent<IEditorMarkerProps> = props => {
       break;
     case 'template':
       handler = () => template!(config.template, config.multipleLine || false);
+      break;
+    case 'component':
+      handler = undefined;
       break;
   }
   return (
