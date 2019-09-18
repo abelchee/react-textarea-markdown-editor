@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import TextareaMarkdownEditor from 'react-textarea-markdown-editor';
-import { Container, Tab } from 'semantic-ui-react';
+import { Container, Tab, Dropdown } from 'semantic-ui-react';
 import md from './md';
 import CustomizedMarkdownEditor from './CustomizedMarkdownEditor';
 
@@ -45,20 +45,36 @@ Ready to start writing?  Either start changing stuff on the left or
 
 `;
 
+const languageOptions = [
+  { key: 'Chinese', text: '简体中文', value: 'zh' },
+  { key: 'English', text: 'English', value: 'en' },
+];
+
 function App () {
   const [language, setLang] = useState('en');
   const panes = [
     {
       menuItem: 'Default', render: () =>
-        <TextareaMarkdownEditor defaultValue={value} language={language} id="2222" rows={10}
+        <TextareaMarkdownEditor defaultValue={value} language={language} rows={10}
                                 doParse={text => md.render(text)}/>,
     },
     { menuItem: 'Customized', render: () => <CustomizedMarkdownEditor language={language}/> },
   ];
   return (
     <Container>
-      <button type="button" onClick={() => setLang('en')}>English</button>
-      <button type="button" onClick={() => setLang('zh')}>简体中文</button>
+      <Dropdown
+        button
+        className='icon'
+        floating
+        labeled
+        icon='world'
+        options={languageOptions}
+        defaultValue={language}
+        text={languageOptions.find(it => it.value === language).text}
+        onChange={(e, data) => {
+          setLang(data.value);
+        }}
+      />
       <Tab menu={{ secondary: true, pointing: true }} panes={panes}/>
     </Container>
   );
