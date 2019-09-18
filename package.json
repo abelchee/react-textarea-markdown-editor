@@ -6,6 +6,11 @@
   "module": "build/index.es.js",
   "jsnext:main": "build/index.es.js",
   "types": "build/index.d.ts",
+  "keywords": [
+    "react",
+    "markdown",
+    "editor"
+  ],
   "scripts": {
     "clean": "rimraf build",
     "prepare": "yarn build",
