@@ -8272,10 +8272,10 @@ react-scripts@3.1.1:
   optionalDependencies:
     fsevents "2.0.7"
 
-react-textarea-markdown-editor@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/react-textarea-markdown-editor/-/react-textarea-markdown-editor-1.0.6.tgz#36f39994d4a3b48a19d34b6730923aa15a8cda40"
-  integrity sha512-NJ5nPqs8Lm+mHB1ULrv6xlZYs+XrYmR304VBOPDPk7Y1MU95/h0WaDqbXKQE9SPhsJOVUj/HbYptXdVUJTqQ6w==
+react-textarea-markdown-editor@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/react-textarea-markdown-editor/-/react-textarea-markdown-editor-1.0.10.tgz#d436b028012f0f1f73fda5887a60786db81bda80"
+  integrity sha512-IMTf2OjA7fwiw4YQxypIkJLdGWIX6DIKkUDIXEvQGv9ckj7X2rLDQjrCQndt/+rfDfTe2T6cKLSa6sH3pclMOA==
   dependencies:
     classnames "^2.2.6"
     react-enhanced-textarea "2.1.9"
