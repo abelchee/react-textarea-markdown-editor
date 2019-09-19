@@ -51,7 +51,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
     this.state = {
       edit: !props.readOnly,
       lineMarkers: [],
-      value: props.value ? undefined : props.defaultValue,
+      value: props.defaultValue,
     };
     this.toggleEdit = this.toggleEdit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -147,7 +147,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
   }
 
   private onChange(textarea: HTMLTextAreaElement) {
-    if (!this.props.value) {
+    if (this.props.defaultValue) {
       this.setState({ ...this.state, value: textarea.value });
     }
     if (this.props.onChange) {
