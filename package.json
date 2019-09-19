@@ -19,6 +19,7 @@
     "version": "yarn format && git add -A src",
     "postversion": "git push && git push --tags",
     "test": "jest --coverage",
+    "test-coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "build": "yarn clean && rollup -c && yarn sass",
     "sass": "node-sass src -o build && copyfiles -f src/*.scss build",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
