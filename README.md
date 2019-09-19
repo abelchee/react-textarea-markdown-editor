@@ -1,4 +1,10 @@
 # react-textarea-markdown-editor
+[![GitHub issues](https://img.shields.io/github/issues/abelchee/react-textarea-markdown-editor)](https://github.com/abelchee/react-textarea-markdown-editor/issues)
+[![GitHub forks](https://img.shields.io/github/forks/abelchee/react-textarea-markdown-editor)](https://github.com/abelchee/react-textarea-markdown-editor/network)
+[![GitHub stars](https://img.shields.io/github/stars/abelchee/react-textarea-markdown-editor)](https://github.com/abelchee/react-textarea-markdown-editor/stargazers)
+![NPM](https://img.shields.io/npm/l/react-textarea-markdown-editor)
+
+
 A highly **customizable**, **light weight** *React* markdown editor which is
 * Based on pure textarea
 * Not bundled with any markdown parser. Free free to use [markdown-it](https://www.npmjs.com/package/markdown-it), [marked](https://www.npmjs.com/package/marked) or other markdown parsers.
