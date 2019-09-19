@@ -1,4 +1,5 @@
 # react-textarea-markdown-editor
+![Travis (.org) branch](https://img.shields.io/travis/abelchee/react-textarea-markdown-editor/master)
 [![GitHub issues](https://img.shields.io/github/issues/abelchee/react-textarea-markdown-editor)](https://github.com/abelchee/react-textarea-markdown-editor/issues)
 [![GitHub forks](https://img.shields.io/github/forks/abelchee/react-textarea-markdown-editor)](https://github.com/abelchee/react-textarea-markdown-editor/network)
 [![GitHub stars](https://img.shields.io/github/stars/abelchee/react-textarea-markdown-editor)](https://github.com/abelchee/react-textarea-markdown-editor/stargazers)

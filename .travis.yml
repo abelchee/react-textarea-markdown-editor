@@ -11,4 +11,4 @@ addons:
       - g++-4.8
 script:
   - yarn lint
-  - yarn test
+  - yarn test --coverageReporters=text-lcov | coveralls
