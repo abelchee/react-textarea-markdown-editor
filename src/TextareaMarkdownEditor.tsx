@@ -117,7 +117,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
               rows={this.props.rows}
               style={this.props.textareaStyle}
               autoFocus={this.props.autoFocus}
-              defaultValue={this.state.value}
+              defaultValue={this.props.value ? undefined : this.state.value}
               value={this.props.value}
               onChange={this.onChange}
               onKeyDown={this.props.onKeyDown}
@@ -147,9 +147,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
   }
 
   private onChange(textarea: HTMLTextAreaElement) {
-    if (this.props.defaultValue) {
-      this.setState({ ...this.state, value: textarea.value });
-    }
+    this.setState({ ...this.state, value: textarea.value });
     if (this.props.onChange) {
       this.props.onChange(textarea);
     }
