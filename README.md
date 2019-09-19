@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/abelchee/react-textarea-markdown-editor)](https://github.com/abelchee/react-textarea-markdown-editor/stargazers)
 ![NPM](https://img.shields.io/npm/l/react-textarea-markdown-editor)
 ![Coveralls github](https://img.shields.io/coveralls/github/abelchee/react-textarea-markdown-editor)
-
+![npm](https://img.shields.io/npm/dw/react-textarea-markdown-editor)
 
 A highly **customizable**, **light weight** *React* markdown editor which is
 * Based on pure textarea
