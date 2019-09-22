@@ -339,6 +339,8 @@ For unordered-list
 ```typescript
 editorRef.current.markLine('* ')
 ```
+#### `public append(content: string)`
+Append content at the end of textarea
 #### `public registerLineMarker(marker: string) => void`
 For automatically add line marker when user clicks enter key
 #### `public markTemplate(template: string, multipleLine: boolean) => void`

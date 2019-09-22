@@ -94,7 +94,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react-enhanced-textarea": "2.1.9",
+    "react-enhanced-textarea": "2.1.10",
     "react-use": "^12.2.0"
   }
 }

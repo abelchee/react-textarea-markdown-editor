@@ -65,6 +65,11 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
   public focus() {
     this.textareaRef.current!.focus();
   }
+
+  public append(content: string) {
+    this.textareaRef.current!.append(content);
+  }
+
   public mark(prefix: string, suffix: string, defaultText: string, multipleLine?: boolean) {
     if (multipleLine) {
       this.textareaRef.current!.toggleMultipleLineMarker({ prefix, suffix, defaultText });
