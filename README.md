@@ -118,7 +118,7 @@ export interface ITextareaMarkdownEditor {
   value?: string;
   autoFocus?: boolean; // auto focus
   readOnly?: boolean; 
-  onChange?: (textarea: HTMLTextAreaElement) => {};
+  onChange?: (value: string) => {};
   onKeyDown?: (event: React.KeyboardEvent) => {};
   onKeyPress?: (event: React.KeyboardEvent) => {};
   doParse: (text: string) => string; // Pass in the markdown parser

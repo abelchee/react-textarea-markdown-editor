@@ -18,7 +18,7 @@ export interface ITextareaMarkdownEditor {
   value?: string;
   autoFocus?: boolean;
   readOnly?: boolean;
-  onChange?: (textarea: HTMLTextAreaElement) => {};
+  onChange?: (value: string) => {};
   onKeyDown?: (event: React.KeyboardEvent) => {};
   onKeyPress?: (event: React.KeyboardEvent) => {};
   doParse: (text: string) => string;
@@ -151,10 +151,10 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
     this.setState({ ...this.state, edit: !this.state.edit });
   }
 
-  private onChange(textarea: HTMLTextAreaElement) {
-    this.setState({ ...this.state, value: textarea.value });
+  private onChange(value: string) {
+    this.setState({ ...this.state, value });
     if (this.props.onChange) {
-      this.props.onChange(textarea);
+      this.props.onChange(value);
     }
   }
 }
