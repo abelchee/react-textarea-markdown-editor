@@ -10,6 +10,8 @@ export interface ITextareaMarkdownEditor {
   id?: string;
   textareaId?: string;
   className?: string;
+  viewerClassName?: string;
+  viewerStyle?: object;
   placeholder?: string;
   style?: object;
   textareaStyle?: object;
@@ -136,7 +138,8 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
             />
           ) : (
             <div
-              className="tme-viewer"
+              className={classNames('tme-viewer', this.props.viewerClassName)}
+              style={this.props.viewerStyle}
               dangerouslySetInnerHTML={{
                 __html: this.textareaRef.current ? this.props.doParse(this.textareaRef.current.value) : '',
               }}
