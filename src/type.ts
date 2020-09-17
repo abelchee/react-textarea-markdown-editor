@@ -38,10 +38,10 @@ export interface ILineMarker {
 export interface IDropdown {
   key: string;
   type: 'dropdown';
-  markers: Array<IMarker | ILineMarker | ITemplateMarker | ICmp>;
+  markers: (IMarker | ILineMarker | ITemplateMarker | ICmp)[];
 }
 
 export interface IMarkerGroup {
   key: string;
-  markers: Array<IMarker | ILineMarker | ITemplateMarker | IDropdown | ICmp>;
+  markers: (IMarker | ILineMarker | ITemplateMarker | IDropdown | ICmp)[];
 }
