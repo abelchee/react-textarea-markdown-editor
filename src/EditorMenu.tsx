@@ -24,7 +24,7 @@ export interface IEditorMenuProps {
   markers?: IMarkerGroup[];
 }
 
-const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
+const EditorMenu: React.FunctionComponent<IEditorMenuProps> = (props) => {
   const { toggleEdit, isEditing, language, readOnly } = props;
   let { markers } = props;
   if (!markers) {
@@ -163,9 +163,9 @@ const EditorMenu: React.FunctionComponent<IEditorMenuProps> = props => {
   return (
     <div className="tme-menu">
       {isEditing &&
-        markers.map(group => (
+        markers.map((group) => (
           <ul key={group.key} className="tme-menu-group left">
-            {group.markers.map(marker => {
+            {group.markers.map((marker) => {
               switch (marker.type) {
                 case 'dropdown':
                   return <EditorMenuDropdown key={marker.key} config={marker} />;

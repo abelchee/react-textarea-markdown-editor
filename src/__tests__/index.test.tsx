@@ -8,7 +8,7 @@ describe('TextareaMarkdownEditor', () => {
     const component = renderer.create(
       <TextareaMarkdownEditor
         id="container"
-        doParse={it => it}
+        doParse={(it) => it}
         textareaId="textarea"
         className="mock-container"
         style={{ width: '100%' }}
@@ -30,7 +30,7 @@ describe('TextareaMarkdownEditor', () => {
     const component = renderer.create(
       <TextareaMarkdownEditor
         id="container"
-        doParse={it => it}
+        doParse={(it) => it}
         textareaId="textarea"
         className="mock-container"
         style={{ width: '100%' }}
@@ -52,7 +52,7 @@ describe('TextareaMarkdownEditor', () => {
   test('template', () => {
     const component = renderer.create(
       <TextareaMarkdownEditor
-        doParse={it => it}
+        doParse={(it) => it}
         markers={[
           {
             key: 'g',
@@ -75,14 +75,14 @@ describe('TextareaMarkdownEditor', () => {
   });
 
   test('line-marker', () => {
-    const wrapper = mount(<TextareaMarkdownEditor doParse={it => it} />);
+    const wrapper = mount(<TextareaMarkdownEditor doParse={(it) => it} />);
     const header2 = wrapper.find('li[title="<h2></h2>"]');
     expect(header2.length).toBe(1);
     header2.find('span').simulate('click');
     expect(wrapper.find('textarea').props().defaultValue).toBe('## ');
   });
   test('marker', () => {
-    const wrapper = mount(<TextareaMarkdownEditor doParse={it => it} />);
+    const wrapper = mount(<TextareaMarkdownEditor doParse={(it) => it} />);
     const header2 = wrapper.find('li[title="Italic"]');
     expect(header2.length).toBe(1);
     header2.find('span').simulate('click');
@@ -91,7 +91,7 @@ describe('TextareaMarkdownEditor', () => {
   test('template', () => {
     const wrapper = mount(
       <TextareaMarkdownEditor
-        doParse={it => it}
+        doParse={(it) => it}
         markers={[
           {
             key: 'g',
@@ -116,7 +116,7 @@ describe('TextareaMarkdownEditor', () => {
   });
 
   test('value change', () => {
-    const wrapper = mount(<TextareaMarkdownEditor doParse={it => it} value="123" />);
+    const wrapper = mount(<TextareaMarkdownEditor doParse={(it) => it} value="123" />);
     expect(wrapper.find('textarea').props().value).toBe('123');
     wrapper.setProps({ value: '456' });
     expect(wrapper.find('textarea').props().value).toBe('456');

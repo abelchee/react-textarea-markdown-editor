@@ -13,7 +13,7 @@ export interface IEditorMenuDropdownProps {
   config: IDropdown;
 }
 
-const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = props => {
+const EditorMenuDropdown: React.FunctionComponent<IEditorMenuDropdownProps> = (props) => {
   const { config } = props;
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(0);

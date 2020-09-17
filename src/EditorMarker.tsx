@@ -9,7 +9,7 @@ export interface IEditorMarkerProps {
   className?: string;
 }
 
-const EditorMarker: React.FunctionComponent<IEditorMarkerProps> = props => {
+const EditorMarker: React.FunctionComponent<IEditorMarkerProps> = (props) => {
   const { mark, markLine, registerLineMarker, template } = useContext(EditorContext);
   useEffect(() => {
     if (config.type === 'line-marker') {
