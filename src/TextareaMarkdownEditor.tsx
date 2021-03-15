@@ -16,6 +16,7 @@ export interface ITextareaMarkdownEditor {
   style?: object;
   textareaStyle?: object;
   rows?: number;
+  maxLength?: number;
   defaultValue?: string;
   value?: string;
   autoFocus?: boolean;
@@ -122,6 +123,7 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
               className="tme-textarea"
               ref={this.textareaRef}
               rows={this.props.rows}
+              maxLength={this.props.maxLength}
               style={this.props.textareaStyle}
               autoFocus={this.props.autoFocus}
               defaultValue={this.props.value ? undefined : this.state.value}
