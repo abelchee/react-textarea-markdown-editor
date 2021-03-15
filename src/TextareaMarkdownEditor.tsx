@@ -143,7 +143,11 @@ class TextareaMarkdownEditor extends React.Component<ITextareaMarkdownEditor, IT
               className={classNames('tme-viewer', this.props.viewerClassName)}
               style={this.props.viewerStyle}
               dangerouslySetInnerHTML={{
-                __html: this.textareaRef.current ? this.props.doParse(this.textareaRef.current.value) : '',
+                __html: this.props.readOnly
+                  ? this.props.doParse(this.props.value ?? this.state.value ?? '')
+                  : this.textareaRef.current
+                  ? this.props.doParse(this.textareaRef.current.value)
+                  : '',
               }}
             />
           )}

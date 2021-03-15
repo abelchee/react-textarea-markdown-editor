@@ -53,8 +53,8 @@
     }
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
@@ -95,7 +95,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react-enhanced-textarea": "3.1.1",
+    "react-enhanced-textarea": "3.1.2",
     "react-use": "^17.2.1"
   }
 }
